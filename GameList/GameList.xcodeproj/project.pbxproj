@@ -16,6 +16,7 @@
 		E1319E6F26C8FD8E00E7159D /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E6E26C8FD8E00E7159D /* Publisher.swift */; };
 		E1319E7226C8FF8B00E7159D /* GameAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E7126C8FF8B00E7159D /* GameAPIService.swift */; };
 		E1319E7426C90EF500E7159D /* GameProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E7326C90EF500E7159D /* GameProcessor.swift */; };
+		E1319E7826C91EF900E7159D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E7726C91EF900E7159D /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E1319E6E26C8FD8E00E7159D /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		E1319E7126C8FF8B00E7159D /* GameAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAPIService.swift; sourceTree = "<group>"; };
 		E1319E7326C90EF500E7159D /* GameProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessor.swift; sourceTree = "<group>"; };
+		E1319E7726C91EF900E7159D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				E1319E5326C8E6F900E7159D /* GameListApp.swift */,
 				E1319E5526C8E6F900E7159D /* ContentView.swift */,
+				E1319E7526C91EB300E7159D /* Views */,
 				E1319E7026C8FE9300E7159D /* Services */,
 				E1319E6326C8E78F00E7159D /* Models */,
 				E1319E5726C8E6FA00E7159D /* Assets.xcassets */,
@@ -98,6 +101,22 @@
 				E1319E7326C90EF500E7159D /* GameProcessor.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E1319E7526C91EB300E7159D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1319E7626C91ED300E7159D /* ViewRepresentable */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1319E7626C91ED300E7159D /* ViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				E1319E7726C91EF900E7159D /* SearchBarView.swift */,
+			);
+			path = ViewRepresentable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +214,7 @@
 				E1319E5626C8E6F900E7159D /* ContentView.swift in Sources */,
 				E1319E7426C90EF500E7159D /* GameProcessor.swift in Sources */,
 				E1319E7226C8FF8B00E7159D /* GameAPIService.swift in Sources */,
+				E1319E7826C91EF900E7159D /* SearchBarView.swift in Sources */,
 				E1319E6726C8E9FA00E7159D /* Platform.swift in Sources */,
 				E1319E5426C8E6F900E7159D /* GameListApp.swift in Sources */,
 				E1319E6926C8EA4C00E7159D /* Game.swift in Sources */,
