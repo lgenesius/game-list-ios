@@ -1,10 +1,3 @@
-//
-//  DetailView.swift
-//  GameList
-//
-//  Created by Luis Genesius on 15/08/21.
-//
-
 import SwiftUI
 
 struct DetailView: View {
