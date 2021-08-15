@@ -5,7 +5,9 @@ class GameProcessor: GameAPIService {
     private let key = "960c60d98d5b4e5abafd1878c7b83b37"
     private let baseURL = " https://api.rawg.io/api"
     private let urlSession = URLSession.shared
+    
     private init() {}
+    
     func fetchGames(completion: @escaping (Result<GameResponse, APIError>) -> Void) {
         guard let url = URL(string: "\(baseURL)/games") else {
             completion(.failure(.invalidEndpoint))
@@ -13,6 +15,7 @@ class GameProcessor: GameAPIService {
         }
         self.loadURLAndDecode(url: url, completion: completion)
     }
+    
     func fetchGame(gameId: Int, completion: @escaping (Result<Game, APIError>) -> Void) {
         guard let url = URL(string: "\(baseURL)/games/\(gameId)") else {
             completion(.failure(.invalidEndpoint))
@@ -20,26 +23,32 @@ class GameProcessor: GameAPIService {
         }
         self.loadURLAndDecode(url: url, completion: completion)
     }
-    func searchGame(query: String, completion: @escaping (Result<Game, APIError>) -> Void) {
+    
+    func searchGame(query: String, completion: @escaping (Result<GameResponse, APIError>) -> Void) {
         guard let url = URL(string: "\(baseURL)/games") else {
             completion(.failure(.invalidEndpoint))
             return
         }
         self.loadURLAndDecode(url: url, params: ["query": query], completion: completion)
     }
+    
     func loadMoreGames(url: URL, completion: @escaping (Result<GameResponse, APIError>) -> Void) {
         
     }
+    
     func loadURLAndDecode<C: Codable>(url: URL, params: [String: String]? = nil, completion: @escaping (Result<C, APIError>) -> Void) {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             completion(.failure(.invalidEndpoint))
             return
         }
+        
         var queryItems = [URLQueryItem(name: "key", value: key)]
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }
+        
         urlComponents.queryItems = queryItems
+        
         guard let finalURL = urlComponents.url else {
             completion(.failure(.invalidEndpoint))
             return
@@ -55,10 +64,12 @@ class GameProcessor: GameAPIService {
                 self.executeInMainThread(with: .failure(.invalidResponse), completion: completion)
                 return
             }
+            
             guard let data = data else {
                 self.executeInMainThread(with: .failure(.noData), completion: completion)
                 return
             }
+            
             do {
                 let decoded = try JSONDecoder().decode(C.self, from: data)
                 self.executeInMainThread(with: .success(decoded), completion: completion)
@@ -67,6 +78,7 @@ class GameProcessor: GameAPIService {
             }
         }.resume()
     }
+    
     private func executeInMainThread<C: Decodable>(with result: Result<C, APIError>, completion: @escaping (Result<C, APIError>) -> Void) {
         DispatchQueue.main.async {
             completion(result)

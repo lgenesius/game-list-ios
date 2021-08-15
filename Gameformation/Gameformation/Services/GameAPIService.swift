@@ -3,7 +3,7 @@ import Foundation
 protocol GameAPIService {
     func fetchGames(completion: @escaping (Result<GameResponse, APIError>) -> Void)
     func fetchGame(gameId: Int, completion: @escaping (Result<Game, APIError>) -> Void)
-    func searchGame(query: String, completion: @escaping (Result<Game, APIError>) -> Void)
+    func searchGame(query: String, completion: @escaping (Result<GameResponse, APIError>) -> Void)
     func loadMoreGames(url: URL, completion: @escaping (Result<GameResponse, APIError>) -> Void)
 }
 
@@ -13,6 +13,7 @@ enum APIError: Error, CustomNSError {
     case invalidResponse
     case noData
     case serializationError
+    
     var localizedDescription: String {
         switch self {
         case .error: return "Failed to fetch data"
@@ -22,6 +23,7 @@ enum APIError: Error, CustomNSError {
         case .serializationError: return "Failed to decode data"
         }
     }
+    
     var errorUserInfo: [String: Any] {
         [NSLocalizedDescriptionKey: localizedDescription]
     }

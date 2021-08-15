@@ -1,11 +1,12 @@
 import Foundation
 
-struct Publisher: Codable {
-    let idem: Int
+struct Publisher: Codable, Identifiable {
+    let id: Int
     let name: String
     let imageBackground: String
+    
     enum CodingKeys: String, CodingKey {
-        case idem = "id"
+        case id
         case name
         case imageBackground = "image_background"
     }

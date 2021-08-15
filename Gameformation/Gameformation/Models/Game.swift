@@ -4,6 +4,7 @@ struct GameResponse: Codable {
     let next: String?
     let previous: String?
     let games: [Game]
+    
     enum CodingKeys: String, CodingKey {
         case next
         case previous
@@ -11,8 +12,8 @@ struct GameResponse: Codable {
     }
 }
 
-struct Game: Codable {
-    let idem: Int
+struct Game: Codable, Identifiable {
+    let id: Int
     let name: String
     let released: String
     let backgroundImage: String
@@ -20,8 +21,9 @@ struct Game: Codable {
     let platforms: [Platform]?
     let publishers: [Publisher]?
     let gameDescription: String?
+    
     enum CodingKeys: String, CodingKey {
-        case idem = "id"
+        case id
         case name
         case released
         case backgroundImage = "background_image"
