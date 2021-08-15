@@ -17,23 +17,9 @@ struct Game: Codable {
     let released: String
     let backgroundImage: String
     let overallRating: Double
-    enum CodingKeys: String, CodingKey {
-        case idem = "id"
-        case name
-        case released
-        case backgroundImage = "background_image"
-        case overallRating = "rating"
-    }
-}
-
-struct DetailGame: Codable {
-    let idem: Int
-    let name: String
-    let released: String
-    let backgroundImage: String
-    let overallRating: Double
-    let platforms: [Platform]
-    let gameDescription: String
+    let platforms: [Platform]?
+    let publishers: [Publisher]?
+    let gameDescription: String?
     enum CodingKeys: String, CodingKey {
         case idem = "id"
         case name
@@ -41,6 +27,7 @@ struct DetailGame: Codable {
         case backgroundImage = "background_image"
         case overallRating = "rating"
         case platforms
+        case publishers
         case gameDescription = "description_raw"
     }
 }
