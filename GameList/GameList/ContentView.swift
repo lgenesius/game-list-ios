@@ -2,8 +2,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
-            .padding()
+        TabView {
+            HomeView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
+                }
+                .tag(0)
+            AboutView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person")
+                        Text("About")
+                    }
+                }
+                .tag(1)
+        }
     }
 }
 
