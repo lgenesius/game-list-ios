@@ -15,8 +15,8 @@ struct GameResponse: Codable {
 struct Game: Codable, Identifiable {
     let id: Int
     let name: String
-    let released: String
-    let backgroundImage: String
+    let released: String?
+    let backgroundImage: String?
     let overallRating: Double
     let platforms: [Platform]?
     let publishers: [Publisher]?
@@ -31,5 +31,11 @@ struct Game: Codable, Identifiable {
         case platforms
         case publishers
         case gameDescription = "description_raw"
+    }
+    
+    var backgroundImageURL: URL? {
+        guard let imageURL = self.backgroundImage else { return nil }
+        let url = URL(string: imageURL)
+        return url
     }
 }

@@ -11,7 +11,7 @@ class GameListViewModel: ObservableObject {
         self.gameService = gameService
     }
     
-    func loadGames() {
+    func loadFirstPageOfGames(completion: @escaping () -> Void) {
         self.games = nil
         self.isLoading = true
         self.gameService.fetchGames { [weak self] (result) in
@@ -21,8 +21,10 @@ class GameListViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 self.games = response.games
+                completion()
             case .failure(let error):
                 self.error = error as NSError?
+                completion()
             }
         }
     }

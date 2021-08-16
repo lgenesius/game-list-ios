@@ -3,7 +3,7 @@ import Foundation
 class GameProcessor: GameAPIService {
     static let shared = GameProcessor()
     private let key = "960c60d98d5b4e5abafd1878c7b83b37"
-    private let baseURL = " https://api.rawg.io/api"
+    private let baseURL = "https://api.rawg.io/api"
     private let urlSession = URLSession.shared
     
     private init() {}
@@ -29,7 +29,7 @@ class GameProcessor: GameAPIService {
             completion(.failure(.invalidEndpoint))
             return
         }
-        self.loadURLAndDecode(url: url, params: ["query": query], completion: completion)
+        self.loadURLAndDecode(url: url, params: ["search": query], completion: completion)
     }
     
     func loadMoreGames(url: URL, completion: @escaping (Result<GameResponse, APIError>) -> Void) {
@@ -46,7 +46,7 @@ class GameProcessor: GameAPIService {
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }
-        
+        print(queryItems)
         urlComponents.queryItems = queryItems
         
         guard let finalURL = urlComponents.url else {
@@ -74,6 +74,7 @@ class GameProcessor: GameAPIService {
                 let decoded = try JSONDecoder().decode(C.self, from: data)
                 self.executeInMainThread(with: .success(decoded), completion: completion)
             } catch {
+                debugPrint(error)
                 self.executeInMainThread(with: .failure(.serializationError), completion: completion)
             }
         }.resume()

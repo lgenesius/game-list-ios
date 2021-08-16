@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    let game: Game
+    @ObservedObject var imageLoaderService = ImageLoaderService()
+    
     var body: some View {
         HStack(spacing: 20) {
-            Image(systemName: "house")
+            imageShowUp
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
@@ -24,27 +28,33 @@ struct CardView: View {
         .roundedEdgeCard()
         .clipped()
         .shadow(color: Color.black, radius: 5, x: 0, y: 0)
+        .onAppear {
+            if let url = self.game.backgroundImageURL {
+                imageLoaderService.loadImage(with: url)
+            }
+        }
+    }
+    
+    var imageShowUp: Image {
+        guard let image = imageLoaderService.image else {
+            return Image(systemName: "questionmark.square")
+        }
+        return Image(uiImage: image)
     }
     
     var textVStack: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("Hello")
+            Text(game.name)
                 .titleCardStyle()
-            Text("Tanggal Rlis")
+            Text(game.released ?? "Unknown Release Date")
                 .dateCardStyle()
             HStack(spacing: 5) {
-                Text("4.86")
+                Text(String(game.overallRating))
                     .foregroundColor(.white)
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
         }
         .lineLimit(1)
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView()
     }
 }

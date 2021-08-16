@@ -34,6 +34,7 @@ class GameSearchViewModel: ObservableObject {
         self.error = nil
         
         guard !query.isEmpty  else {
+            initFirstPageOfGames()
             return
         }
         
@@ -48,6 +49,16 @@ class GameSearchViewModel: ObservableObject {
             case .failure(let error):
                 self.error = error as NSError?
             }
+        }
+    }
+    
+    private func initFirstPageOfGames() {
+        self.isLoading = true
+        let gamelistVM = GameListViewModel()
+        gamelistVM.loadFirstPageOfGames {
+            self.games = gamelistVM.games
+            self.isLoading = false
+            self.error = gamelistVM.error
         }
     }
     
