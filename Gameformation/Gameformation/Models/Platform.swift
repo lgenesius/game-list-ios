@@ -1,10 +1,8 @@
-import Foundation
-
-struct Platform: Codable {
+struct Platform: Codable, Hashable {
     let platform: DetailPlatform
 }
 
-struct DetailPlatform: Codable, Identifiable {
+struct DetailPlatform: Codable, Hashable {
     let id: Int
     let name: String
 }

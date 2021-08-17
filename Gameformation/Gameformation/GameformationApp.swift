@@ -1,10 +1,3 @@
-//
-//  GameformationApp.swift
-//  Gameformation
-//
-//  Created by Luis Genesius on 15/08/21.
-//
-
 import SwiftUI
 
 @main

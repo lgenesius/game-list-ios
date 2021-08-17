@@ -1,6 +1,4 @@
-import Foundation
-
-struct Publisher: Codable, Identifiable {
+struct Publisher: Codable, Hashable {
     let id: Int
     let name: String
     let imageBackground: String

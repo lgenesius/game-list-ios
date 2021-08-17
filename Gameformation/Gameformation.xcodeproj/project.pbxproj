@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E1055F9626CA08CC00CE92D7 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9526CA08CC00CE92D7 /* UIActivityIndicator.swift */; };
 		E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */; };
+		E1055F9A26CA538200CE92D7 /* PlatformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9926CA538200CE92D7 /* PlatformView.swift */; };
 		E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8B26C9333A00E7159D /* GameformationApp.swift */; };
 		E1319E8E26C9333A00E7159D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8D26C9333A00E7159D /* ContentView.swift */; };
 		E1319E9026C9333B00E7159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1319E8F26C9333B00E7159D /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		E1055F9526CA08CC00CE92D7 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
 		E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		E1055F9926CA538200CE92D7 /* PlatformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformView.swift; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				E1319EB326C93EB600E7159D /* CardView.swift */,
 				E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */,
+				E1055F9926CA538200CE92D7 /* PlatformView.swift */,
 			);
 			path = ChildView;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				E1319EBA26C945D000E7159D /* Modifier.swift in Sources */,
 				E1319EA526C9340200E7159D /* GameAPIService.swift in Sources */,
 				E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */,
+				E1055F9A26CA538200CE92D7 /* PlatformView.swift in Sources */,
 				E1319EAA26C9344200E7159D /* SearchBarView.swift in Sources */,
 				E1055F9626CA08CC00CE92D7 /* UIActivityIndicator.swift in Sources */,
 				E1319E9F26C933CB00E7159D /* Platform.swift in Sources */,

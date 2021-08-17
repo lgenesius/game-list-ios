@@ -1,15 +1,7 @@
-//
-//  HomeView.swift
-//  Gameformation
-//
-//  Created by Luis Genesius on 15/08/21.
-//
-
 import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject private var gameListViewModel = GameListViewModel()
     @ObservedObject var gameSearchViewModel = GameSearchViewModel()
     
     var body: some View {
@@ -24,16 +16,23 @@ struct HomeView: View {
                         SearchBarView(placeholder: "Search any games...", text: self.$gameSearchViewModel.query)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         
-                        ActivityIndicatorView(isLoading: self.gameSearchViewModel.isLoading, error: self.gameSearchViewModel.error) {
-                            self.gameSearchViewModel.search(query: self.gameSearchViewModel.query)
-                        }
-                        
                         if let gameResults = gameSearchViewModel.games {
                             ForEach(gameResults) { game in
-                                CardView(game: game)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
+                                NavigationLink(
+                                    destination: DetailView(gameId: game.id),
+                                    label: {
+                                        CardView(game: game)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 5)
+                                            .onAppear {
+                                                gameSearchViewModel.loadNextPage(game: game)
+                                            }
+                                    })
                             }
+                        }
+                        
+                        ActivityIndicatorView(isLoading: self.gameSearchViewModel.isLoading, error: self.gameSearchViewModel.error) {
+                            self.gameSearchViewModel.search(query: self.gameSearchViewModel.query)
                         }
                     }
                 }
@@ -45,11 +44,3 @@ struct HomeView: View {
         }
     }
 }
-
-/*
- struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
-*/

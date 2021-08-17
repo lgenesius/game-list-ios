@@ -1,10 +1,3 @@
-//
-//  CardView.swift
-//  Gameformation
-//
-//  Created by Luis Genesius on 15/08/21.
-//
-
 import SwiftUI
 
 struct CardView: View {
@@ -19,6 +12,7 @@ struct CardView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 80, height: 80)
                 .cornerRadius(10)
+                .foregroundColor(.white)
 
             textVStack
         }

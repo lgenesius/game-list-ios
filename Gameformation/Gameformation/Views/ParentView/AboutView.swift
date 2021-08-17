@@ -1,15 +1,8 @@
-//
-//  AboutView.swift
-//  Gameformation
-//
-//  Created by Luis Genesius on 15/08/21.
-//
-
 import SwiftUI
 
 struct AboutView: View {
     
-    private let myBackground = "Saya adalah mahasiswa universitas Bina Nusantara yang mengambil jurusan Teknik Informatika."
+    private let myBackground = "Saya adalah mahasiswa Universitas Bina Nusantara yang mengambil jurusan Teknik Informatika."
     private let myPurpose = "Memiliki tujuan untuk menjadi seorang iOS Developer yang handal."
     private let myPassion = "Saya memiliki passion untuk mengembangkan aplikasi karena"
     private let myReason = "dapat menghasilkan sebuah produk yang bisa memberikan manfaat bagi banyak orang."

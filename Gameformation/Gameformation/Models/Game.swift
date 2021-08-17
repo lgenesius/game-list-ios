@@ -10,6 +10,12 @@ struct GameResponse: Codable {
         case previous
         case games = "results"
     }
+    
+    var nextURL: URL? {
+        guard let nextString = next else { return nil }
+        guard let url = URL(string: nextString) else { return nil }
+        return url
+    }
 }
 
 struct Game: Codable, Identifiable {

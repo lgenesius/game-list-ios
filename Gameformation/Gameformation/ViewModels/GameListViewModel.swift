@@ -6,6 +6,7 @@ class GameListViewModel: ObservableObject {
     @Published var error: NSError?
     
     private let gameService: GameAPIService
+    var nextPage: String?
     
     init(gameService: GameAPIService = GameProcessor.shared) {
         self.gameService = gameService
@@ -20,6 +21,7 @@ class GameListViewModel: ObservableObject {
             
             switch result {
             case .success(let response):
+                self.nextPage = response.next
                 self.games = response.games
                 completion()
             case .failure(let error):
