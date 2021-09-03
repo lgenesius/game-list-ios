@@ -2,7 +2,9 @@ import SwiftUI
 
 struct DetailView: View {
     let gameId: Int
-    @ObservedObject var detailGameViewModel = DetailGameViewModel()
+    let previous: String
+    @StateObject var detailGameViewModel = DetailGameViewModel()
+    @State var isFavorited = false
     
     var body: some View {
         ZStack {
@@ -42,6 +44,31 @@ struct DetailView: View {
             }
         }
         .navigationBarTitle(Text(detailGameViewModel.game?.name ?? ""))
+        .toolbar(content: {
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                Button(action: {
+                    guard let game = detailGameViewModel.game else { return }
+                    if previous == "Gameformation" {
+                        if !self.isFavorited {
+                            CoreDataManager.shared.addNewFavoriteGame(id: game.id, name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
+                            NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+                            self.isFavorited = true
+                            self.detailGameViewModel.loadGame(id: gameId)
+                        }
+                    } else {
+                        guard let game = CoreDataManager.shared.fetchGameEntityBasedOnId(id: game.id).first else { return }
+                        CoreDataManager.shared.deleteGame(game: game)
+                        NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+                    }
+                }, label: {
+                    Text(previous == "Gameformation" ? (self.isFavorited ? "Favorited" : "Favorite") : "Unfavorite")
+                })
+                .disabled(previous == "Gameformation" && isFavorited)
+                .onAppear {
+                    self.isFavorited = CoreDataManager.shared.fetchGameEntityBasedOnId(id: gameId).first != nil ? true : false
+                }
+            }
+        })
         .onAppear {
             self.detailGameViewModel.loadGame(id: gameId)
         }

@@ -30,4 +30,24 @@ class GameListViewModel: ObservableObject {
             }
         }
     }
+    
+    func loadGameFromCoreData(games: [GameEntity]) {
+        self.games = [Game]()
+        guard !games.isEmpty else { return }
+        self.isLoading = true
+        for game in games {
+            self.gameService.fetchGame(gameId: Int(game.id)) { [weak self] (result) in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(let game):
+                    print(game)
+                    self.games?.append(game)
+                case .failure(let error):
+                    self.error = error as NSError
+                }
+            }
+        }
+        self.isLoading = false
+    }
 }

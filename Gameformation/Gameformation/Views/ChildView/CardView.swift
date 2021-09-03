@@ -2,7 +2,11 @@ import SwiftUI
 
 struct CardView: View {
     
-    let game: Game
+    let name: String
+    let released: String?
+    let overallRating: Double
+    let backgroundImage: String?
+    
     @ObservedObject var imageLoaderService = ImageLoaderService()
     
     var body: some View {
@@ -23,7 +27,8 @@ struct CardView: View {
         .clipped()
         .shadow(color: Color.black, radius: 5, x: 0, y: 0)
         .onAppear {
-            if let url = self.game.backgroundImageURL {
+            guard let imageURL = self.backgroundImage else { return }
+            if let url = URL(string: imageURL) {
                 imageLoaderService.loadImage(with: url)
             }
         }
@@ -38,12 +43,12 @@ struct CardView: View {
     
     var textVStack: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(game.name)
+            Text(name)
                 .titleCardStyle()
-            Text(game.released ?? "Unknown Release Date")
+            Text(released ?? "Unknown Release Date")
                 .dateCardStyle()
             HStack(spacing: 5) {
-                Text(String(game.overallRating))
+                Text(String(overallRating))
                     .foregroundColor(.white)
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)

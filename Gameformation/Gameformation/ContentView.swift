@@ -11,6 +11,14 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
+            FavoriteView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "heart")
+                        Text("Favorites")
+                    }
+                }
+                .tag(1)
             AboutView()
                 .tabItem {
                     VStack {
@@ -18,7 +26,7 @@ struct ContentView: View {
                         Text("About")
                     }
                 }
-                .tag(1)
+                .tag(2)
         }
     }
 }

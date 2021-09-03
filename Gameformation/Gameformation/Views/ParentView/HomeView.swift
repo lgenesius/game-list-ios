@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var gameSearchViewModel = GameSearchViewModel()
+    @StateObject var gameSearchViewModel = GameSearchViewModel()
     
     var body: some View {
         NavigationView {
@@ -19,9 +19,9 @@ struct HomeView: View {
                         if let gameResults = gameSearchViewModel.games {
                             ForEach(gameResults) { game in
                                 NavigationLink(
-                                    destination: DetailView(gameId: game.id),
+                                    destination: DetailView(gameId: game.id, previous: "Gameformation"),
                                     label: {
-                                        CardView(game: game)
+                                        CardView(name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 5)
                                             .onAppear {
