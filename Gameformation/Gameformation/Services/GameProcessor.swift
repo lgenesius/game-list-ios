@@ -2,7 +2,18 @@ import Foundation
 
 class GameProcessor: GameAPIService {
     static let shared = GameProcessor()
-    private let key = "960c60d98d5b4e5abafd1878c7b83b37"
+    
+    private var key: String {
+        guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist") else {
+            fatalError("Couldn't find file 'Info.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let value = plist?.object(forKey: "API_KEY") as? String else {
+            fatalError("Couldn't find key 'API_KEY' in 'Info.plist'.")
+        }
+        return value
+    }
+    
     private let baseURL = "https://api.rawg.io/api"
     private let urlSession = URLSession.shared
     

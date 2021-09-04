@@ -2,10 +2,9 @@ import SwiftUI
 
 struct AboutView: View {
     
-    private let myBackground = "Saya adalah mahasiswa Universitas Bina Nusantara yang mengambil jurusan Teknik Informatika."
-    private let myPurpose = "Memiliki tujuan untuk menjadi seorang iOS Developer yang handal."
-    private let myPassion = "Saya memiliki passion untuk mengembangkan aplikasi karena"
-    private let myReason = "dapat menghasilkan sebuah produk yang bisa memberikan manfaat bagi banyak orang."
+    @State var name: String = UserDefaults.standard.string(forKey: "profileName") ?? "No Name"
+    @State var origin: String = UserDefaults.standard.string(forKey: "profileOrigin") ?? "No Origin"
+    @State var description: String = UserDefaults.standard.string(forKey: "profileDescription") ?? "No Description"
     
     var body: some View {
         NavigationView {
@@ -20,11 +19,11 @@ struct AboutView: View {
                                 .circularImageStyle()
                                 .padding(.top, 20)
                             
-                            Text("Luis Genesius")
+                            Text(self.name)
                                 .bigTitleStyle()
                                 .padding(.top, 15)
                             
-                            Text("Singkawang, Kalimantan Barat")
+                            Text(self.origin)
                                 .titleCardStyle()
                                 .padding(.top, 1)
                             
@@ -39,17 +38,9 @@ struct AboutView: View {
                                     Spacer()
                                 }
                                 HStack {
-                                    Text(myBackground + " " + myPurpose)
+                                    Text(self.description)
                                         .foregroundColor(.white)
                                         .padding(.horizontal)
-                                    Spacer()
-                                }
-                                
-                                HStack {
-                                    Text(myPassion + " " + myReason)
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal)
-                                        .padding(.top, 5)
                                     Spacer()
                                 }
                             }
@@ -60,7 +51,21 @@ struct AboutView: View {
                 }
             }
             .navigationBarTitle("About Me")
+            .toolbar(content: {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    NavigationLink(
+                        destination: EditProfileView(),
+                        label: {
+                            Text("Edit Profile")
+                        })
+                }
+            })
         }
+        .onReceive(NotificationCenter.default.publisher(for: .refreshAbout, object: nil), perform: { _ in
+           name = UserDefaults.standard.string(forKey: "profileName") ?? "No Name"
+            origin = UserDefaults.standard.string(forKey: "profileOrigin") ?? "No Origin"
+            description = UserDefaults.standard.string(forKey: "profileDescription") ?? "No Description"
+        })
     }
 }
 
