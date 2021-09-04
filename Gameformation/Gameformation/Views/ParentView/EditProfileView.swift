@@ -1,10 +1,3 @@
-//
-//  EditProfileView.swift
-//  Gameformation
-//
-//  Created by Luis Genesius on 03/09/21.
-//
-
 import SwiftUI
 
 struct EditProfileView: View {
