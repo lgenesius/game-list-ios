@@ -4,6 +4,7 @@ class GameProcessor: GameAPIService {
     static let shared = GameProcessor()
     
     private var key: String {
+        /* code below here is to get value from info.plist
         guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist") else {
             fatalError("Couldn't find file 'Info.plist'.")
         }
@@ -11,7 +12,13 @@ class GameProcessor: GameAPIService {
         guard let value = plist?.object(forKey: "API_KEY") as? String else {
             fatalError("Couldn't find key 'API_KEY' in 'Info.plist'.")
         }
-        return value
+         */
+        
+        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else {
+            fatalError("Couldn't find key 'API_KEY' in 'Info.plist'.")
+        }
+        
+        return apiKey
     }
     
     private let baseURL = "https://api.rawg.io/api"

@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Gameformation
+//
+//  Created by Luis Genesius on 18/11/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = 960c60d98d5b4e5abafd1878c7b83b37

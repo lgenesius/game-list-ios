@@ -45,6 +45,7 @@
 		E1055F9526CA08CC00CE92D7 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
 		E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		E1055F9926CA538200CE92D7 /* PlatformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformView.swift; sourceTree = "<group>"; };
+		E11FE8AF2746170600265DC7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +90,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11FE8AC274615F300265DC7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E19E11FF26E2655300531720 /* AppDelegate.swift */,
+				E1319E8B26C9333A00E7159D /* GameformationApp.swift */,
+				E1319E8D26C9333A00E7159D /* ContentView.swift */,
+				E1A47ABB26E10BAA0004CEB6 /* GameData.xcdatamodeld */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E11FE8AD2746164400265DC7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1319E8F26C9333B00E7159D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E11FE8AE274616EE00265DC7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8AF2746170600265DC7 /* Config.xcconfig */,
+				E1319E9426C9333B00E7159D /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		E1319E7F26C9333A00E7159D = {
 			isa = PBXGroup;
 			children = (
@@ -108,17 +137,14 @@
 		E1319E8A26C9333A00E7159D /* Gameformation */ = {
 			isa = PBXGroup;
 			children = (
-				E19E11FF26E2655300531720 /* AppDelegate.swift */,
-				E1319E8B26C9333A00E7159D /* GameformationApp.swift */,
-				E1319E8D26C9333A00E7159D /* ContentView.swift */,
+				E11FE8AC274615F300265DC7 /* App */,
+				E11FE8AE274616EE00265DC7 /* Config */,
 				E1319EBE26C95D5F00E7159D /* ViewModels */,
 				E1319E9C26C933A700E7159D /* Views */,
 				E1319E9D26C933AF00E7159D /* Services */,
 				E1A47AC426E122F50004CEB6 /* Extension */,
 				E1319E9B26C9339C00E7159D /* Models */,
-				E1319E8F26C9333B00E7159D /* Assets.xcassets */,
-				E1A47ABB26E10BAA0004CEB6 /* GameData.xcdatamodeld */,
-				E1319E9426C9333B00E7159D /* Info.plist */,
+				E11FE8AD2746164400265DC7 /* Resources */,
 				E1319E9126C9333B00E7159D /* Preview Content */,
 			);
 			path = Gameformation;
@@ -362,6 +388,7 @@
 /* Begin XCBuildConfiguration section */
 		E1319E9526C9333B00E7159D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E11FE8AF2746170600265DC7 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -423,6 +450,7 @@
 		};
 		E1319E9626C9333B00E7159D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E11FE8AF2746170600265DC7 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
