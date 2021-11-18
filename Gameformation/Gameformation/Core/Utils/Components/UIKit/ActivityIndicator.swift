@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct UIActivityIndicator: UIViewRepresentable {
+struct ActivityIndicator: ViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let view = UIActivityIndicatorView(style: .large)
         view.startAnimating()

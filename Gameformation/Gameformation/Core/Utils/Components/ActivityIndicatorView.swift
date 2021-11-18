@@ -9,7 +9,7 @@ struct ActivityIndicatorView: View {
         HStack {
             Spacer()
             if isLoading {
-                UIActivityIndicator()
+                ActivityIndicator()
             } else if error != nil {
                 errorView
             }

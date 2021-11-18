@@ -21,14 +21,3 @@ extension View {
         self.modifier(RoundedEdge(width: 2, cornerRadius: 10))
     }
 }
-
-extension Image {
-    func circularImageStyle() -> some View {
-        self
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 150, height: 150)
-            .clipShape(Circle())
-            .shadow(radius: 10)
-    }
-}

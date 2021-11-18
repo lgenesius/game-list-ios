@@ -1,6 +1,8 @@
 import SwiftUI
 
-struct SearchBarView: UIViewRepresentable {
+typealias ViewRepresentable = UIViewRepresentable
+
+struct SearchBarView: ViewRepresentable {
     let placeholder: String
     @Binding var text: String
     func makeUIView(context: Context) -> UISearchBar {
