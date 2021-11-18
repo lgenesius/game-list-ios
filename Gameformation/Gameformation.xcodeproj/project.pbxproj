@@ -19,6 +19,7 @@
 		E11FE8D32746201500265DC7 /* RoundedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D22746201500265DC7 /* RoundedEdge.swift */; };
 		E11FE8D62746365900265DC7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E11FE8D52746365900265DC7 /* Alamofire */; };
 		E11FE8D8274657F800265DC7 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D7274657F800265DC7 /* PersistentContainer.swift */; };
+		E11FE8DB2746640300265DC7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8DA2746640300265DC7 /* HomeInteractor.swift */; };
 		E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8B26C9333A00E7159D /* GameformationApp.swift */; };
 		E1319E8E26C9333A00E7159D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8D26C9333A00E7159D /* ContentView.swift */; };
 		E1319E9026C9333B00E7159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1319E8F26C9333B00E7159D /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		E11FE8D027461FE900265DC7 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
 		E11FE8D22746201500265DC7 /* RoundedEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedEdge.swift; sourceTree = "<group>"; };
 		E11FE8D7274657F800265DC7 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		E11FE8DA2746640300265DC7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		E11FE8B5274619BE00265DC7 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				E11FE8D9274663C200265DC7 /* Response */,
 				E11FE8B6274619CB00265DC7 /* GameRemoteDataSource.swift */,
 			);
 			path = Remote;
@@ -192,7 +195,7 @@
 		E11FE8BE27461A6E00265DC7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				E1319E9B26C9339C00E7159D /* Models */,
+				E1319E9B26C9339C00E7159D /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -328,6 +331,16 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		E11FE8D9274663C200265DC7 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E1319EA226C933E600E7159D /* Game.swift */,
+				E1319E9E26C933CB00E7159D /* Platform.swift */,
+				E1319EA026C933D700E7159D /* Publisher.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		E1319E7F26C9333A00E7159D = {
 			isa = PBXGroup;
 			children = (
@@ -368,14 +381,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E1319E9B26C9339C00E7159D /* Models */ = {
+		E1319E9B26C9339C00E7159D /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				E1319EA226C933E600E7159D /* Game.swift */,
-				E1319E9E26C933CB00E7159D /* Platform.swift */,
-				E1319EA026C933D700E7159D /* Publisher.swift */,
+				E11FE8DA2746640300265DC7 /* HomeInteractor.swift */,
 			);
-			path = Models;
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		E1319E9D26C933AF00E7159D /* Services */ = {
@@ -508,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E11FE8CE27461F9F00265DC7 /* Image+Extension.swift in Sources */,
+				E11FE8DB2746640300265DC7 /* HomeInteractor.swift in Sources */,
 				E1319EAC26C9345A00E7159D /* HomeView.swift in Sources */,
 				E1319EA126C933D700E7159D /* Publisher.swift in Sources */,
 				E1319EBC26C95B6C00E7159D /* ImageLoaderService.swift in Sources */,
