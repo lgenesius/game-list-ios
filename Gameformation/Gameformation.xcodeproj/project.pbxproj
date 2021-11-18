@@ -11,8 +11,8 @@
 		E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */; };
 		E1055F9A26CA538200CE92D7 /* PlatformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9926CA538200CE92D7 /* PlatformView.swift */; };
 		E11FE8B3274618B000265DC7 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B2274618B000265DC7 /* GameRepository.swift */; };
-		E11FE8B7274619CB00265DC7 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */; };
-		E11FE8B9274619D400265DC7 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B8274619D400265DC7 /* LocalDataSource.swift */; };
+		E11FE8B7274619CB00265DC7 /* GameRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B6274619CB00265DC7 /* GameRemoteDataSource.swift */; };
+		E11FE8B9274619D400265DC7 /* GameLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B8274619D400265DC7 /* GameLocalDataSource.swift */; };
 		E11FE8BD27461A4000265DC7 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */; };
 		E11FE8CE27461F9F00265DC7 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8CD27461F9F00265DC7 /* Image+Extension.swift */; };
 		E11FE8D127461FE900265DC7 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D027461FE900265DC7 /* TextModifier.swift */; };
@@ -54,8 +54,8 @@
 		E1055F9926CA538200CE92D7 /* PlatformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformView.swift; sourceTree = "<group>"; };
 		E11FE8AF2746170600265DC7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E11FE8B2274618B000265DC7 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
-		E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
-		E11FE8B8274619D400265DC7 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		E11FE8B6274619CB00265DC7 /* GameRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRemoteDataSource.swift; sourceTree = "<group>"; };
+		E11FE8B8274619D400265DC7 /* GameLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLocalDataSource.swift; sourceTree = "<group>"; };
 		E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		E11FE8CD27461F9F00265DC7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		E11FE8D027461FE900265DC7 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		E11FE8B4274619B800265DC7 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				E11FE8B8274619D400265DC7 /* LocalDataSource.swift */,
+				E11FE8B8274619D400265DC7 /* GameLocalDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 		E11FE8B5274619BE00265DC7 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */,
+				E11FE8B6274619CB00265DC7 /* GameRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -515,7 +515,7 @@
 				E1A47AC326E11D260004CEB6 /* GameCoreDataViewModel.swift in Sources */,
 				E1319EC026C95D7300E7159D /* GameListViewModel.swift in Sources */,
 				E1A47AC126E110CE0004CEB6 /* CoreDataManager.swift in Sources */,
-				E11FE8B7274619CB00265DC7 /* RemoteDataSource.swift in Sources */,
+				E11FE8B7274619CB00265DC7 /* GameRemoteDataSource.swift in Sources */,
 				E1319EAE26C9346200E7159D /* AboutView.swift in Sources */,
 				E11FE8B3274618B000265DC7 /* GameRepository.swift in Sources */,
 				E146FE8326E30C0100617D1D /* DateService.swift in Sources */,
@@ -537,7 +537,7 @@
 				E1319EB426C93EB600E7159D /* CardView.swift in Sources */,
 				E146FE8126E30ABA00617D1D /* NotificationService.swift in Sources */,
 				E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */,
-				E11FE8B9274619D400265DC7 /* LocalDataSource.swift in Sources */,
+				E11FE8B9274619D400265DC7 /* GameLocalDataSource.swift in Sources */,
 				E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */,
 				E1A47ABF26E10DCF0004CEB6 /* FavoriteView.swift in Sources */,
 			);

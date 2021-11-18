@@ -14,7 +14,6 @@ struct API {
         guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else {
             fatalError("Couldn't find key 'API_KEY' in 'Info.plist'.")
         }
-        
         return apiKey
     }
     
