@@ -10,6 +10,10 @@
 		E1055F9626CA08CC00CE92D7 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9526CA08CC00CE92D7 /* UIActivityIndicator.swift */; };
 		E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */; };
 		E1055F9A26CA538200CE92D7 /* PlatformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1055F9926CA538200CE92D7 /* PlatformView.swift */; };
+		E11FE8B3274618B000265DC7 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B2274618B000265DC7 /* GameRepository.swift */; };
+		E11FE8B7274619CB00265DC7 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */; };
+		E11FE8B9274619D400265DC7 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8B8274619D400265DC7 /* LocalDataSource.swift */; };
+		E11FE8BD27461A4000265DC7 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */; };
 		E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8B26C9333A00E7159D /* GameformationApp.swift */; };
 		E1319E8E26C9333A00E7159D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8D26C9333A00E7159D /* ContentView.swift */; };
 		E1319E9026C9333B00E7159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1319E8F26C9333B00E7159D /* Assets.xcassets */; };
@@ -46,6 +50,10 @@
 		E1055F9726CA0A1700CE92D7 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		E1055F9926CA538200CE92D7 /* PlatformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformView.swift; sourceTree = "<group>"; };
 		E11FE8AF2746170600265DC7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E11FE8B2274618B000265DC7 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
+		E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		E11FE8B8274619D400265DC7 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +126,169 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		E11FE8B02746183900265DC7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8B12746189D00265DC7 /* Data */,
+				E11FE8BE27461A6E00265DC7 /* Domain */,
+				E11FE8BA27461A1B00265DC7 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E11FE8B12746189D00265DC7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8B5274619BE00265DC7 /* Remote */,
+				E11FE8B4274619B800265DC7 /* Local */,
+				E11FE8B2274618B000265DC7 /* GameRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E11FE8B4274619B800265DC7 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8B8274619D400265DC7 /* LocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		E11FE8B5274619BE00265DC7 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8B6274619CB00265DC7 /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		E11FE8BA27461A1B00265DC7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8BB27461A2300265DC7 /* Network */,
+				E1A47AC426E122F50004CEB6 /* Extension */,
+				E11FE8BF27461B2200265DC7 /* Services */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E11FE8BB27461A2300265DC7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E11FE8BE27461A6E00265DC7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E1319E9B26C9339C00E7159D /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E11FE8BF27461B2200265DC7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E146FE8026E30ABA00617D1D /* NotificationService.swift */,
+				E146FE8226E30C0100617D1D /* DateService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E11FE8C027461B4B00265DC7 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8C127461B6500265DC7 /* Home */,
+				E11FE8C227461B6D00265DC7 /* Detail */,
+				E11FE8C427461B8700265DC7 /* Favorite */,
+				E11FE8C327461B7C00265DC7 /* About */,
+				E11FE8C927461BED00265DC7 /* Edit */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E11FE8C127461B6500265DC7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8C527461BA200265DC7 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E11FE8C227461B6D00265DC7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8C627461BB300265DC7 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E11FE8C327461B7C00265DC7 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8C727461BC000265DC7 /* View */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		E11FE8C427461B8700265DC7 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8C827461BC800265DC7 /* View */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		E11FE8C527461BA200265DC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1319EAB26C9345A00E7159D /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E11FE8C627461BB300265DC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1319EAF26C9346A00E7159D /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E11FE8C727461BC000265DC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1319EAD26C9346200E7159D /* AboutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E11FE8C827461BC800265DC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E11FE8C927461BED00265DC7 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8CA27461BFB00265DC7 /* View */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		E11FE8CA27461BFB00265DC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E19E120126E26BD500531720 /* EditProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E1319E7F26C9333A00E7159D = {
 			isa = PBXGroup;
 			children = (
@@ -139,11 +310,11 @@
 			children = (
 				E11FE8AC274615F300265DC7 /* App */,
 				E11FE8AE274616EE00265DC7 /* Config */,
+				E11FE8B02746183900265DC7 /* Core */,
+				E11FE8C027461B4B00265DC7 /* Module */,
 				E1319EBE26C95D5F00E7159D /* ViewModels */,
 				E1319E9C26C933A700E7159D /* Views */,
 				E1319E9D26C933AF00E7159D /* Services */,
-				E1A47AC426E122F50004CEB6 /* Extension */,
-				E1319E9B26C9339C00E7159D /* Models */,
 				E11FE8AD2746164400265DC7 /* Resources */,
 				E1319E9126C9333B00E7159D /* Preview Content */,
 			);
@@ -161,9 +332,9 @@
 		E1319E9B26C9339C00E7159D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1319EA226C933E600E7159D /* Game.swift */,
 				E1319E9E26C933CB00E7159D /* Platform.swift */,
 				E1319EA026C933D700E7159D /* Publisher.swift */,
-				E1319EA226C933E600E7159D /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,7 +344,6 @@
 			children = (
 				E1319EB826C945BF00E7159D /* Modifier */,
 				E1319EB526C9434C00E7159D /* ViewExtension */,
-				E1319EB226C93E9B00E7159D /* ParentView */,
 				E1319EB126C93E9000E7159D /* ChildView */,
 				E1319EA826C9343300E7159D /* ViewRepresentable */,
 			);
@@ -187,8 +357,6 @@
 				E1319EA626C9342500E7159D /* GameProcessor.swift */,
 				E1319EBB26C95B6C00E7159D /* ImageLoaderService.swift */,
 				E1A47AC026E110CE0004CEB6 /* CoreDataManager.swift */,
-				E146FE8026E30ABA00617D1D /* NotificationService.swift */,
-				E146FE8226E30C0100617D1D /* DateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,18 +378,6 @@
 				E1055F9926CA538200CE92D7 /* PlatformView.swift */,
 			);
 			path = ChildView;
-			sourceTree = "<group>";
-		};
-		E1319EB226C93E9B00E7159D /* ParentView */ = {
-			isa = PBXGroup;
-			children = (
-				E1319EAB26C9345A00E7159D /* HomeView.swift */,
-				E1319EAD26C9346200E7159D /* AboutView.swift */,
-				E1319EAF26C9346A00E7159D /* DetailView.swift */,
-				E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */,
-				E19E120126E26BD500531720 /* EditProfileView.swift */,
-			);
-			path = ParentView;
 			sourceTree = "<group>";
 		};
 		E1319EB526C9434C00E7159D /* ViewExtension */ = {
@@ -355,10 +511,13 @@
 				E1319EBC26C95B6C00E7159D /* ImageLoaderService.swift in Sources */,
 				E1319EA326C933E600E7159D /* Game.swift in Sources */,
 				E1319EA726C9342500E7159D /* GameProcessor.swift in Sources */,
+				E11FE8BD27461A4000265DC7 /* APIEndpoints.swift in Sources */,
 				E1A47AC326E11D260004CEB6 /* GameCoreDataViewModel.swift in Sources */,
 				E1319EC026C95D7300E7159D /* GameListViewModel.swift in Sources */,
 				E1A47AC126E110CE0004CEB6 /* CoreDataManager.swift in Sources */,
+				E11FE8B7274619CB00265DC7 /* RemoteDataSource.swift in Sources */,
 				E1319EAE26C9346200E7159D /* AboutView.swift in Sources */,
+				E11FE8B3274618B000265DC7 /* GameRepository.swift in Sources */,
 				E146FE8326E30C0100617D1D /* DateService.swift in Sources */,
 				E1319EC226C962F000E7159D /* DetailGameViewModel.swift in Sources */,
 				E1319EB026C9346A00E7159D /* DetailView.swift in Sources */,
@@ -378,6 +537,7 @@
 				E1319EB426C93EB600E7159D /* CardView.swift in Sources */,
 				E146FE8126E30ABA00617D1D /* NotificationService.swift in Sources */,
 				E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */,
+				E11FE8B9274619D400265DC7 /* LocalDataSource.swift in Sources */,
 				E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */,
 				E1A47ABF26E10DCF0004CEB6 /* FavoriteView.swift in Sources */,
 			);
