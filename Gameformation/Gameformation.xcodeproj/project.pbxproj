@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				E11FE8AF2746170600265DC7 /* Config.xcconfig */,
-				E1319E9426C9333B00E7159D /* Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -351,6 +350,7 @@
 				E1319E9D26C933AF00E7159D /* Services */,
 				E11FE8AD2746164400265DC7 /* Resources */,
 				E1319E9126C9333B00E7159D /* Preview Content */,
+				E1319E9426C9333B00E7159D /* Info.plist */,
 			);
 			path = Gameformation;
 			sourceTree = "<group>";
