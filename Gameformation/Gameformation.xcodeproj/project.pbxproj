@@ -18,6 +18,7 @@
 		E11FE8D127461FE900265DC7 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D027461FE900265DC7 /* TextModifier.swift */; };
 		E11FE8D32746201500265DC7 /* RoundedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D22746201500265DC7 /* RoundedEdge.swift */; };
 		E11FE8D62746365900265DC7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E11FE8D52746365900265DC7 /* Alamofire */; };
+		E11FE8D8274657F800265DC7 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D7274657F800265DC7 /* PersistentContainer.swift */; };
 		E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8B26C9333A00E7159D /* GameformationApp.swift */; };
 		E1319E8E26C9333A00E7159D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8D26C9333A00E7159D /* ContentView.swift */; };
 		E1319E9026C9333B00E7159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1319E8F26C9333B00E7159D /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		E11FE8CD27461F9F00265DC7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		E11FE8D027461FE900265DC7 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
 		E11FE8D22746201500265DC7 /* RoundedEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedEdge.swift; sourceTree = "<group>"; };
+		E11FE8D7274657F800265DC7 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E11FE8BC27461A4000265DC7 /* APIEndpoints.swift */,
+				E11FE8D7274657F800265DC7 /* PersistentContainer.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				E1319EC226C962F000E7159D /* DetailGameViewModel.swift in Sources */,
 				E1319EB026C9346A00E7159D /* DetailView.swift in Sources */,
 				E11FE8D32746201500265DC7 /* RoundedEdge.swift in Sources */,
+				E11FE8D8274657F800265DC7 /* PersistentContainer.swift in Sources */,
 				E1319EA526C9340200E7159D /* GameAPIService.swift in Sources */,
 				E1A47ABD26E10BAA0004CEB6 /* GameData.xcdatamodeld in Sources */,
 				E19E120226E26BD500531720 /* EditProfileView.swift in Sources */,
