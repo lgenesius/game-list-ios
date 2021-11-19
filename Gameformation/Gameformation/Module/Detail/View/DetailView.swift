@@ -1,4 +1,5 @@
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
@@ -15,7 +16,7 @@ struct DetailView: View {
             ScrollView {
                 LazyVStack {
                     if let game = presenter.game {
-//                        DetailImage(imageURL: game.backgroundImageURL)
+                        DetailImageView(imageManager: ImageManager(url: game.backgroundImageURL))
                         
                         if let platforms = game.platforms {
                             PlatformsView(platforms: platforms)
@@ -72,26 +73,54 @@ struct DetailView: View {
     }
 }
 
-struct DetailImage: View {
-    let imageURL: URL?
-    @ObservedObject var imageLoaderService = ImageLoaderService()
+struct DetailImageView: View {
+    @ObservedObject var imageManager: ImageManager
     
     var body: some View {
-        imageShowUp
-            .resizable()
-            .aspectRatio(16/9, contentMode: .fill)
-            .onAppear {
-                if let url = imageURL {
-                    imageLoaderService.loadImage(with: url)
+        VStack {
+            if imageManager.image != nil {
+                Image(uiImage: imageManager.image!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 16) * 9)
+            } else {
+                if #available(iOS 15.0, *) {
+                    Rectangle()
+                        .foregroundColor(.gray)
+                        .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 16) * 9)
+                        .overlay {
+                            if imageManager.isLoading {
+                                ActivityIndicator()
+                            } else {
+                                Text("No Image")
+                                    .foregroundColor(.black)
+                                    .font(Font.system(.largeTitle, design: .default))
+                            }
+                        }
+                } else {
+                    Rectangle()
+                        .foregroundColor(.gray)
+                        .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 16) * 9)
+                        .overlay(
+                            ZStack {
+                                if imageManager.isLoading {
+                                    ActivityIndicator()
+                                } else {
+                                    Text("No Image")
+                                        .foregroundColor(.black)
+                                        .font(Font.system(.largeTitle, design: .default))
+                                }
+                            }
+                        )
                 }
             }
-    }
-    
-    var imageShowUp: Image {
-        guard let image = imageLoaderService.image else {
-            return Image(systemName: "questionmark.square")
         }
-        return Image(uiImage: image)
+        .onAppear {
+            imageManager.load()
+        }
+        .onDisappear {
+            imageManager.cancel()
+        }
     }
 }
 
@@ -108,7 +137,6 @@ struct PlatformsView: View {
             }
         }
         .padding(.top, 5)
-        .padding(.horizontal)
     }
 }
 
