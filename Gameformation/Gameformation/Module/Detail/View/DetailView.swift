@@ -1,24 +1,21 @@
 import SwiftUI
 
 struct DetailView: View {
-    let gameId: Int
-    let previous: String
-    @StateObject var detailGameViewModel = DetailGameViewModel()
-    @State var isFavorited = false
+    @ObservedObject var presenter: DetailPresenter
     
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2274509804, green: 0.3803921569, blue: 0.5254901961, alpha: 1)), Color(#colorLiteral(red: 0.537254902, green: 0.1450980392, blue: 0.2431372549, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
-            ActivityIndicatorView(isLoading: self.detailGameViewModel.isLoading, error: self.detailGameViewModel.error) {
-                self.detailGameViewModel.loadGame(id: gameId)
+            ActivityIndicatorView(isLoading: presenter.isLoading, error: presenter.error) {
+                presenter.getGame()
             }
             
             ScrollView {
                 LazyVStack {
-                    if let game = detailGameViewModel.game {
-                        DetailImage(imageURL: game.backgroundImageURL)
+                    if let game = presenter.game {
+//                        DetailImage(imageURL: game.backgroundImageURL)
                         
                         if let platforms = game.platforms {
                             PlatformsView(platforms: platforms)
@@ -43,34 +40,34 @@ struct DetailView: View {
                 }
             }
         }
-        .navigationBarTitle(Text(detailGameViewModel.game?.name ?? ""))
-        .toolbar(content: {
-            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                Button(action: {
-                    guard let game = detailGameViewModel.game else { return }
-                    if previous == "Gameformation" {
-                        if !self.isFavorited {
-                            CoreDataManager.shared.addNewFavoriteGame(id: game.id, name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
-                            NotificationCenter.default.post(name: .refreshFavorite, object: nil)
-                            self.isFavorited = true
-                            self.detailGameViewModel.loadGame(id: gameId)
-                        }
-                    } else {
-                        guard let game = CoreDataManager.shared.fetchGameEntityBasedOnId(id: game.id).first else { return }
-                        CoreDataManager.shared.deleteGame(game: game)
-                        NotificationCenter.default.post(name: .refreshFavorite, object: nil)
-                    }
-                }, label: {
-                    Text(previous == "Gameformation" ? (self.isFavorited ? "Favorited" : "Favorite") : "Unfavorite")
-                })
-                .disabled(previous == "Gameformation" && isFavorited)
-                .onAppear {
-                    self.isFavorited = CoreDataManager.shared.fetchGameEntityBasedOnId(id: gameId).first != nil ? true : false
-                }
-            }
-        })
+        .navigationBarTitle(Text(presenter.game?.name ?? ""))
+//        .toolbar(content: {
+//            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+//                Button(action: {
+//                    guard let game = detailGameViewModel.game else { return }
+//                    if previous == "Gameformation" {
+//                        if !self.isFavorited {
+//                            CoreDataManager.shared.addNewFavoriteGame(id: game.id, name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
+//                            NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+//                            self.isFavorited = true
+//                            self.detailGameViewModel.loadGame(id: gameId)
+//                        }
+//                    } else {
+//                        guard let game = CoreDataManager.shared.fetchGameEntityBasedOnId(id: game.id).first else { return }
+//                        CoreDataManager.shared.deleteGame(game: game)
+//                        NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+//                    }
+//                }, label: {
+//                    Text(previous == "Gameformation" ? (self.isFavorited ? "Favorited" : "Favorite") : "Unfavorite")
+//                })
+//                .disabled(previous == "Gameformation" && isFavorited)
+//                .onAppear {
+//                    self.isFavorited = CoreDataManager.shared.fetchGameEntityBasedOnId(id: gameId).first != nil ? true : false
+//                }
+//            }
+//        })
         .onAppear {
-            self.detailGameViewModel.loadGame(id: gameId)
+            presenter.getGame()
         }
     }
 }

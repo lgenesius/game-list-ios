@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(presenter: HomePresenter(homeUseCase: Injection().provideHomeUseCase()))
                 .tabItem {
                     VStack {
                         Image(systemName: "house")

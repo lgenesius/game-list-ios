@@ -14,13 +14,13 @@ struct FavoriteView: View {
                         
                         if !gameCoreDataViewModel.savedEntities.isEmpty {
                             ForEach(gameCoreDataViewModel.savedEntities) { game in
-                                NavigationLink(
-                                    destination: DetailView(gameId: Int(game.id), previous: "FavoriteView"),
-                                    label: {
-                                        CardView(game: Converter.fromGameEntityToGame(game))
-                                            .padding(.horizontal, 10)
-                                            .padding(.vertical, 5)
-                                    })
+//                                NavigationLink(
+//                                    destination: DetailView(gameId: Int(game.id), previous: "FavoriteView"),
+//                                    label: {
+//                                        CardView(game: Converter.fromGameEntityToGameRequest(game))
+//                                            .padding(.horizontal, 10)
+//                                            .padding(.vertical, 5)
+//                                    })
                             }
                         } else {
                             

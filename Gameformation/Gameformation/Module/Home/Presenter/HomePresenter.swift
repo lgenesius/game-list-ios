@@ -13,6 +13,7 @@ class HomePresenter: ObservableObject {
     private var cancelables: Set<AnyCancellable> = []
     private var token: AnyCancellable?
     
+    private let router = TabRouter()
     private let homeUseCase: HomeUseCase
     
     @Published var query = ""
@@ -109,6 +110,10 @@ class HomePresenter: ObservableObject {
         guard let nextString = self.nextPage else { return nil }
         guard let url = URL(string: nextString) else { return nil }
         return url
+    }
+    
+    func linkBuilder<Content: View>(with id: Int, @ViewBuilder content: () -> Content) -> some View {
+        NavigationLink(destination: router.createDetailView(from: .home, with: id)) { content() }
     }
     
     deinit {

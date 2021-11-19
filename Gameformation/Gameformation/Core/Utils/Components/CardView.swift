@@ -2,14 +2,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CardView: View {
-    let game: Game
-    @State var isAnimating = true
-    
-    @StateObject var imageLoaderService = ImageLoaderService()
+    let game: GameRequest
     
     var body: some View {
         HStack(spacing: 20) {
-            ImageView(imageManager: ImageManager(url: game.backgroundImageURL))
+            ImageCardView(imageManager: ImageManager(url: game.backgroundImageURL))
 
             textVStack
         }
@@ -38,7 +35,7 @@ struct CardView: View {
     }
 }
 
-struct ImageView: View {
+struct ImageCardView: View {
     @ObservedObject var imageManager: ImageManager
     
     var body: some View {
