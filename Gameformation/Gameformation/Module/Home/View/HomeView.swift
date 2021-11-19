@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHomeUseCase())
     @StateObject var gameSearchViewModel = GameSearchViewModel()
     
     var body: some View {
@@ -13,10 +13,10 @@ struct HomeView: View {
                 ScrollView {
                     LazyVStack {
                         
-                        SearchBarView(placeholder: "Search any games...", text: self.$gameSearchViewModel.query)
+                        SearchBarView(placeholder: "Search any games...", text: self.$homePresenter.query)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         
-                        if let gameResults = gameSearchViewModel.games {
+                        if let gameResults = homePresenter.games {
                             ForEach(gameResults) { game in
                                 NavigationLink(
                                     destination: DetailView(gameId: game.id, previous: "Gameformation"),
@@ -25,14 +25,14 @@ struct HomeView: View {
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 5)
                                             .onAppear {
-                                                gameSearchViewModel.loadNextPage(game: game)
+                                                homePresenter.loadNextGames(game: game)
                                             }
                                     })
                             }
                         }
                         
-                        ActivityIndicatorView(isLoading: self.gameSearchViewModel.isLoading, error: self.gameSearchViewModel.error) {
-                            self.gameSearchViewModel.search(query: self.gameSearchViewModel.query)
+                        ActivityIndicatorView(isLoading: homePresenter.isLoading, error: homePresenter.error) {
+                            homePresenter.search(query: homePresenter.query)
                         }
                     }
                 }
@@ -40,7 +40,7 @@ struct HomeView: View {
             .navigationBarTitle("Gameformation")
         }
         .onAppear {
-            gameSearchViewModel.beginProcess()
+            homePresenter.beginProcess()
         }
     }
 }

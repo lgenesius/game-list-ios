@@ -10,10 +10,10 @@ import Combine
 
 protocol GameRemoteRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<[Game], Error>
+    func getGames() -> AnyPublisher<(String?, [Game]), Error>
     func getGame(id: Int) -> AnyPublisher<Game, Error>
-    func searchGame(query: String) -> AnyPublisher<[Game], Error>
-    func nextGames(url: URL) -> AnyPublisher<[Game], Error>
+    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error>
+    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error>
 }
 
 final class GameRemoteRepository {
@@ -31,9 +31,9 @@ final class GameRemoteRepository {
 
 extension GameRemoteRepository: GameRemoteRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<[Game], Error> {
+    func getGames() -> AnyPublisher<(String?, [Game]), Error> {
         return remote.getGames()
-            .map { return $0.games }
+            .map { ($0.next, $0.games) }
             .eraseToAnyPublisher()
     }
     
@@ -41,15 +41,15 @@ extension GameRemoteRepository: GameRemoteRepositoryProtocol {
         return remote.getGame(id: id)
     }
     
-    func searchGame(query: String) -> AnyPublisher<[Game], Error> {
+    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error> {
         return remote.searchGame(query: query)
-            .map { return $0.games }
+            .map { ($0.next, $0.games) }
             .eraseToAnyPublisher()
     }
     
-    func nextGames(url: URL) -> AnyPublisher<[Game], Error> {
+    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error> {
         return remote.nextGames(url: url)
-            .map { return $0.games }
+            .map { ($0.next, $0.games) }
             .eraseToAnyPublisher()
     }
     

@@ -16,14 +16,16 @@ class ImageLoaderService: ObservableObject {
             return
         }
         
-        downloadImage(url: url) { [weak self] (data, error) in
-            guard let self = self else { return }
-            if error == nil {
-                guard let data = data else { return }
-                guard let image = UIImage(data: data) else { return }
-                self.imageCache.setObject(image, forKey: urlString as AnyObject)
-                DispatchQueue.main.async {
-                    self.image = image
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.downloadImage(url: url) { [weak self] (data, error) in
+                guard let self = self else { return }
+                if error == nil {
+                    guard let data = data else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    self.imageCache.setObject(image, forKey: urlString as AnyObject)
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
                 }
             }
         }

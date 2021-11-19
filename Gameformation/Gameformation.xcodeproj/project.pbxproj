@@ -21,6 +21,7 @@
 		E11FE8D8274657F800265DC7 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8D7274657F800265DC7 /* PersistentContainer.swift */; };
 		E11FE8DB2746640300265DC7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8DA2746640300265DC7 /* HomeInteractor.swift */; };
 		E11FE8DD27469E8800265DC7 /* GameLocalRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8DC27469E8800265DC7 /* GameLocalRepositoryProtocol.swift */; };
+		E11FE8E02746AB0600265DC7 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FE8DF2746AB0600265DC7 /* HomePresenter.swift */; };
 		E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8B26C9333A00E7159D /* GameformationApp.swift */; };
 		E1319E8E26C9333A00E7159D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319E8D26C9333A00E7159D /* ContentView.swift */; };
 		E1319E9026C9333B00E7159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1319E8F26C9333B00E7159D /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		E1A47AC126E110CE0004CEB6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC026E110CE0004CEB6 /* CoreDataManager.swift */; };
 		E1A47AC326E11D260004CEB6 /* GameCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC226E11D260004CEB6 /* GameCoreDataViewModel.swift */; };
 		E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */; };
+		E1E2ED4327475B840024F211 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED4227475B840024F211 /* Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,7 @@
 		E11FE8D7274657F800265DC7 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		E11FE8DA2746640300265DC7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E11FE8DC27469E8800265DC7 /* GameLocalRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLocalRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E11FE8DF2746AB0600265DC7 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		E1319E8826C9333A00E7159D /* Gameformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gameformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1319E8B26C9333A00E7159D /* GameformationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationApp.swift; sourceTree = "<group>"; };
 		E1319E8D26C9333A00E7159D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		E1A47AC026E110CE0004CEB6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E1A47AC226E11D260004CEB6 /* GameCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoreDataViewModel.swift; sourceTree = "<group>"; };
 		E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
+		E1E2ED4227475B840024F211 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E11FE8B12746189D00265DC7 /* Data */,
+				E1E2ED4127475B620024F211 /* DI */,
 				E11FE8BE27461A6E00265DC7 /* Domain */,
 				E11FE8BA27461A1B00265DC7 /* Utils */,
 			);
@@ -227,6 +232,7 @@
 		E11FE8C127461B6500265DC7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E11FE8DE2746AAF700265DC7 /* Presenter */,
 				E11FE8C527461BA200265DC7 /* View */,
 			);
 			path = Home;
@@ -344,6 +350,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		E11FE8DE2746AAF700265DC7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E11FE8DF2746AB0600265DC7 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		E1319E7F26C9333A00E7159D = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +436,14 @@
 				E1319EB626C9437300E7159D /* View+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E1E2ED4127475B620024F211 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2ED4227475B840024F211 /* Injection.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +549,7 @@
 				E1319EA126C933D700E7159D /* Publisher.swift in Sources */,
 				E1319EBC26C95B6C00E7159D /* ImageLoaderService.swift in Sources */,
 				E1319EA326C933E600E7159D /* Game.swift in Sources */,
+				E1E2ED4327475B840024F211 /* Injection.swift in Sources */,
 				E11FE8D127461FE900265DC7 /* TextModifier.swift in Sources */,
 				E1319EA726C9342500E7159D /* GameProcessor.swift in Sources */,
 				E11FE8BD27461A4000265DC7 /* APIEndpoints.swift in Sources */,
@@ -544,6 +567,7 @@
 				E1319EA526C9340200E7159D /* GameAPIService.swift in Sources */,
 				E1A47ABD26E10BAA0004CEB6 /* GameData.xcdatamodeld in Sources */,
 				E19E120226E26BD500531720 /* EditProfileView.swift in Sources */,
+				E11FE8E02746AB0600265DC7 /* HomePresenter.swift in Sources */,
 				E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */,
 				E1055F9A26CA538200CE92D7 /* PlatformView.swift in Sources */,
 				E1319EAA26C9344200E7159D /* SearchBarView.swift in Sources */,

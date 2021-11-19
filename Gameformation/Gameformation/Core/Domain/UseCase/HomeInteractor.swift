@@ -10,10 +10,10 @@ import Combine
 
 protocol HomeUseCase {
     
-    func getGames() -> AnyPublisher<[Game], Error>
+    func getGames() -> AnyPublisher<(String?, [Game]), Error>
     func getGame(id: Int) -> AnyPublisher<Game, Error>
-    func searchGame(query: String) -> AnyPublisher<[Game], Error>
-    func nextGames(url: URL) -> AnyPublisher<[Game], Error>
+    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error>
+    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error>
 }
 
 class HomeInteractor {
@@ -27,7 +27,7 @@ class HomeInteractor {
 
 extension HomeInteractor: HomeUseCase {
     
-    func getGames() -> AnyPublisher<[Game], Error> {
+    func getGames() -> AnyPublisher<(String?, [Game]), Error> {
         return repository.getGames()
     }
     
@@ -35,11 +35,11 @@ extension HomeInteractor: HomeUseCase {
         return repository.getGame(id: id)
     }
     
-    func searchGame(query: String) -> AnyPublisher<[Game], Error> {
+    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error> {
         return repository.searchGame(query: query)
     }
     
-    func nextGames(url: URL) -> AnyPublisher<[Game], Error> {
+    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error> {
         return repository.nextGames(url: url)
     }
 }
