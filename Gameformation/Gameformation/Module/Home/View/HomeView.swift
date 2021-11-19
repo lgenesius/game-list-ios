@@ -21,7 +21,7 @@ struct HomeView: View {
                                 NavigationLink(
                                     destination: DetailView(gameId: game.id, previous: "Gameformation"),
                                     label: {
-                                        CardView(name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
+                                        CardView(game: game)
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 5)
                                             .onAppear {

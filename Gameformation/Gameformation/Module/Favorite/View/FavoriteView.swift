@@ -17,7 +17,7 @@ struct FavoriteView: View {
                                 NavigationLink(
                                     destination: DetailView(gameId: Int(game.id), previous: "FavoriteView"),
                                     label: {
-                                        CardView(name: game.name ?? "Unknown", released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
+                                        CardView(game: Converter.fromGameEntityToGame(game))
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 5)
                                     })

@@ -52,6 +52,7 @@
 		E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */; };
 		E1E2ED4327475B840024F211 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED4227475B840024F211 /* Injection.swift */; };
 		E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */; };
+		E1E2ED49274763E80024F211 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED48274763E80024F211 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		E1A47AC226E11D260004CEB6 /* GameCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoreDataViewModel.swift; sourceTree = "<group>"; };
 		E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		E1E2ED4227475B840024F211 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		E1E2ED48274763E80024F211 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		E11FE8BA27461A1B00265DC7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E1E2ED47274763DD0024F211 /* Converter */,
 				E11FE8BB27461A2300265DC7 /* Network */,
 				E1A47AC426E122F50004CEB6 /* Extension */,
 				E11FE8BF27461B2200265DC7 /* Services */,
@@ -448,6 +451,14 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		E1E2ED47274763DD0024F211 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2ED48274763E80024F211 /* Converter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -563,6 +574,7 @@
 				E11FE8B7274619CB00265DC7 /* GameRemoteDataSource.swift in Sources */,
 				E1319EAE26C9346200E7159D /* AboutView.swift in Sources */,
 				E11FE8B3274618B000265DC7 /* GameRemoteRepository.swift in Sources */,
+				E1E2ED49274763E80024F211 /* Converter.swift in Sources */,
 				E146FE8326E30C0100617D1D /* DateService.swift in Sources */,
 				E1319EC226C962F000E7159D /* DetailGameViewModel.swift in Sources */,
 				E1319EB026C9346A00E7159D /* DetailView.swift in Sources */,

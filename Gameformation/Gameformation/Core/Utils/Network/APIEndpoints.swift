@@ -29,7 +29,7 @@ struct API {
             case .game(let id):
                 return "\(API.baseURL)/games/\(id)?key=\(API.key)"
             case .search(let query):
-                return "\(API.baseURL)/games/?key=\(API.key)&search=\(query)"
+                return "\(API.baseURL)/games?key=\(API.key)&search=\(query)"
             }
         }
     }

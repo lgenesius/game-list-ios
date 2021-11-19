@@ -1,22 +1,15 @@
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CardView: View {
+    let game: Game
+    @State var isAnimating = true
     
-    let name: String
-    let released: String?
-    let overallRating: Double
-    let backgroundImage: String?
-    
-    @ObservedObject var imageLoaderService = ImageLoaderService()
+    @StateObject var imageLoaderService = ImageLoaderService()
     
     var body: some View {
         HStack(spacing: 20) {
-            imageShowUp
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
-                .cornerRadius(10)
-                .foregroundColor(.white)
+            ImageView(imageManager: ImageManager(url: game.backgroundImageURL))
 
             textVStack
         }
@@ -26,34 +19,69 @@ struct CardView: View {
         .roundedEdgeCard()
         .clipped()
         .shadow(color: Color.black, radius: 5, x: 0, y: 0)
-        .onAppear {
-            guard let imageURL = self.backgroundImage else { return }
-            if let url = URL(string: imageURL) {
-                imageLoaderService.loadImage(with: url)
-            }
-        }
-    }
-    
-    var imageShowUp: Image {
-        guard let image = imageLoaderService.image else {
-            return Image(systemName: "questionmark.square")
-        }
-        return Image(uiImage: image)
     }
     
     var textVStack: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(name)
+            Text(game.name)
                 .titleCardStyle()
-            Text(released ?? "Unknown Release Date")
+            Text(game.released ?? "Unknown Release Date")
                 .dateCardStyle()
             HStack(spacing: 5) {
-                Text(String(overallRating))
+                Text(String(game.overallRating))
                     .foregroundColor(.white)
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
         }
         .lineLimit(1)
+    }
+}
+
+struct ImageView: View {
+    @ObservedObject var imageManager: ImageManager
+    
+    var body: some View {
+        ZStack {
+            if imageManager.image != nil {
+                Image(uiImage: imageManager.image!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(10)
+            } else {
+                if imageManager.isLoading {
+                    if #available(iOS 15.0, *) {
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 80, height: 80)
+                            .overlay {
+                                ActivityIndicator()
+                            }
+                    } else {
+                        // Fallback on earlier versions
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 80, height: 80)
+                            .overlay(
+                                ActivityIndicator()
+                            )
+                    }
+                } else {
+                    Image(systemName: "questionmark.square")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                }
+            }
+        }
+        .onAppear {
+            self.imageManager.load()
+        }
+        .onDisappear {
+            self.imageManager.cancel()
+        }
     }
 }
