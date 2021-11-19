@@ -41,34 +41,20 @@ struct DetailView: View {
                 }
             }
         }
-        .navigationBarTitle(Text(presenter.game?.name ?? ""))
-//        .toolbar(content: {
-//            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-//                Button(action: {
-//                    guard let game = detailGameViewModel.game else { return }
-//                    if previous == "Gameformation" {
-//                        if !self.isFavorited {
-//                            CoreDataManager.shared.addNewFavoriteGame(id: game.id, name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
-//                            NotificationCenter.default.post(name: .refreshFavorite, object: nil)
-//                            self.isFavorited = true
-//                            self.detailGameViewModel.loadGame(id: gameId)
-//                        }
-//                    } else {
-//                        guard let game = CoreDataManager.shared.fetchGameEntityBasedOnId(id: game.id).first else { return }
-//                        CoreDataManager.shared.deleteGame(game: game)
-//                        NotificationCenter.default.post(name: .refreshFavorite, object: nil)
-//                    }
-//                }, label: {
-//                    Text(previous == "Gameformation" ? (self.isFavorited ? "Favorited" : "Favorite") : "Unfavorite")
-//                })
-//                .disabled(previous == "Gameformation" && isFavorited)
-//                .onAppear {
-//                    self.isFavorited = CoreDataManager.shared.fetchGameEntityBasedOnId(id: gameId).first != nil ? true : false
-//                }
-//            }
-//        })
+        .navigationTitle(Text(presenter.game?.name ?? ""))
+        .toolbar(content: {
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                Button(action: {
+                    presenter.trailingToolbarAction()
+                }, label: {
+                    Text(presenter.setTrailingToolbarText())
+                })
+                    .disabled(presenter.disableToolbar())
+            }
+        })
         .onAppear {
             presenter.getGame()
+            presenter.setFavoriteStatus()
         }
     }
 }
@@ -81,8 +67,7 @@ struct DetailImageView: View {
             if imageManager.image != nil {
                 Image(uiImage: imageManager.image!)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width / 16) * 9)
+                    .aspectRatio(16/9, contentMode: .fill)
             } else {
                 if #available(iOS 15.0, *) {
                     Rectangle()
@@ -115,6 +100,7 @@ struct DetailImageView: View {
                 }
             }
         }
+        .padding(.bottom, 5)
         .onAppear {
             imageManager.load()
         }

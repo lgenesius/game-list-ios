@@ -15,7 +15,7 @@ class CoreDataManager: ObservableObject {
     
     func saveData() {
         do {
-            try persistentContainer.viewContext.save()
+            try PersistentContainer.viewContext.save()
         } catch {
             print("Failed to save game \(error)")
         }
@@ -35,7 +35,7 @@ class CoreDataManager: ObservableObject {
         let fetchRequest: NSFetchRequest<GameEntity> = GameEntity.fetchRequest()
         
         do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
+            return try PersistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             return []
         }
@@ -45,7 +45,7 @@ class CoreDataManager: ObservableObject {
         let fetchRequest: NSFetchRequest<GameEntity> = GameEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", Int32(id))
         do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
+            return try PersistentContainer.viewContext.fetch(fetchRequest)
         } catch {
             print("Failed to fetch game \(error)")
         }

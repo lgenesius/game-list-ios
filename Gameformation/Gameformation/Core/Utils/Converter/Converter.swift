@@ -19,6 +19,6 @@ final class Converter {
     }
     
     static func fromGameEntityToGameRequest(_ game: GameEntity) -> GameRequest {
-        return GameRequest(id: Int(game.id), name: game.name!, released: game.released!, backgroundImage: game.backgroundImage!, overallRating: game.overallRating)
+        return GameRequest(id: Int(game.id), name: game.name ?? "", released: game.released ?? "", backgroundImage: game.backgroundImage ?? "", overallRating: game.overallRating)
     }
 }

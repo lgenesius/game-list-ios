@@ -30,7 +30,7 @@ class DetailPresenter: ObservableObject {
     
     private let detailUseCase: DetailUseCase
     private let parentView: ParentView
-    private var cancelable: AnyCancellable?
+    private var cancelables: Set<AnyCancellable> = []
     
     init(detailUseCase: DetailUseCase, parentView: ParentView) {
         self.detailUseCase = detailUseCase
@@ -40,11 +40,9 @@ class DetailPresenter: ObservableObject {
     func getGame() {
         game = nil
         error = nil
-        cancelable?.cancel()
-        cancelable = nil
         
         isLoading = true
-        cancelable = detailUseCase.getGame()
+        detailUseCase.getGame()
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -56,10 +54,79 @@ class DetailPresenter: ObservableObject {
             } receiveValue: { [weak self] game in
                 self?.game = game
             }
+            .store(in: &cancelables)
+    }
+    
+    func setFavoriteStatus() {
+        detailUseCase.getGameEntity()
+            .receive(on: RunLoop.main)
+            .sink { _ in
+                
+            } receiveValue: { [weak self] gameEntity in
+                self?.isFavorited = gameEntity == nil ? false: true
+            }
+            .store(in: &cancelables)
+    }
+    
+    func disableToolbar() -> Bool {
+        return parentView == .home && isFavorited
+    }
+    
+    func setTrailingToolbarText() -> String {
+        return parentView == .home ? (isFavorited ? "Favorited": "Favorite"): "Unfavorite"
+    }
+    
+    func trailingToolbarAction() {
+        if parentView == .home {
+            homeTrailingToolbarAction()
+        } else {
+            favoriteTrailingToolbarAction()
+        }
+    }
+    
+    private func homeTrailingToolbarAction() {
+        guard let game = game else { return }
+        
+        if !isFavorited {
+            let gameRequest = GameRequest(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, overallRating: game.overallRating)
+            detailUseCase.addGame(request: gameRequest)
+                .receive(on: RunLoop.main)
+                .sink { [weak self] status in
+                    if status {
+                        self?.getGame()
+                        self?.isFavorited = true
+                        NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+                    }
+                }
+                .store(in: &cancelables)
+        }
+    }
+    
+    private func favoriteTrailingToolbarAction() {
+        detailUseCase.getGameEntity()
+            .receive(on: RunLoop.main)
+            .sink { _ in
+                
+            } receiveValue: { [weak self] gameEntity in
+                if let entity = gameEntity {
+                    self?.deleteGameEntity(entity: entity)
+                }
+            }
+            .store(in: &cancelables)
+    }
+    
+    private func deleteGameEntity(entity: GameEntity) {
+        detailUseCase.deleteGame(game: entity)
+            .receive(on: RunLoop.main)
+            .sink { status in
+                if status {
+                    NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+                }
+            }
+            .store(in: &cancelables)
     }
     
     deinit {
-        cancelable?.cancel()
-        cancelable = nil
+        cancelables.removeAll()
     }
 }

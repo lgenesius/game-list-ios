@@ -34,7 +34,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationBarTitle("Gameformation")
+            .navigationTitle("Gameformation")
         }
         .onAppear {
             presenter.beginProcess()

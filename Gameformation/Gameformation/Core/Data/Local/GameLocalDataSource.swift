@@ -56,14 +56,14 @@ extension GameLocalDataSource: GameLocalDataSourceProtocol {
         .eraseToAnyPublisher()
     }
     
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never> {
+    func addGame(request gameRequest: GameRequest) -> AnyPublisher<Bool, Never> {
         return Future<Bool, Never> { [weak self] completion in
             let game = GameEntity(context: PersistentContainer.viewContext)
-            game.id = Int32(game.id)
-            game.name = game.name
-            game.released = game.released
-            game.overallRating = game.overallRating
-            game.backgroundImage = game.backgroundImage
+            game.id = Int32(gameRequest.id)
+            game.name = gameRequest.name
+            game.released = gameRequest.released
+            game.overallRating = gameRequest.overallRating
+            game.backgroundImage = gameRequest.backgroundImage
             
             do {
                 try self?.save()
