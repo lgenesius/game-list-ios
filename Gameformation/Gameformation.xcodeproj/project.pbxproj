@@ -58,6 +58,7 @@
 		E1E2ED512747819C0024F211 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED502747819C0024F211 /* TabRouter.swift */; };
 		E1E2ED542747866E0024F211 /* GameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED532747866E0024F211 /* GameRequest.swift */; };
 		E1E2ED5E2747F9A10024F211 /* GameformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED5D2747F9A10024F211 /* GameformationTests.swift */; };
+		E1E2ED662747FA240024F211 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		E1E2ED532747866E0024F211 /* GameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRequest.swift; sourceTree = "<group>"; };
 		E1E2ED5B2747F9A10024F211 /* GameformationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameformationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E2ED5D2747F9A10024F211 /* GameformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameformationTests.swift; sourceTree = "<group>"; };
+		E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,9 +522,18 @@
 		E1E2ED5C2747F9A10024F211 /* GameformationTests */ = {
 			isa = PBXGroup;
 			children = (
+				E1E2ED642747F9FB0024F211 /* UseCaseTests */,
 				E1E2ED5D2747F9A10024F211 /* GameformationTests.swift */,
 			);
 			path = GameformationTests;
+			sourceTree = "<group>";
+		};
+		E1E2ED642747F9FB0024F211 /* UseCaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */,
+			);
+			path = UseCaseTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -708,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E2ED5E2747F9A10024F211 /* GameformationTests.swift in Sources */,
+				E1E2ED662747FA240024F211 /* HomeInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
