@@ -51,6 +51,7 @@
 		E1A47AC326E11D260004CEB6 /* GameCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC226E11D260004CEB6 /* GameCoreDataViewModel.swift */; };
 		E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */; };
 		E1E2ED4327475B840024F211 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED4227475B840024F211 /* Injection.swift */; };
+		E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */,
 				E11FE8D62746365900265DC7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +467,7 @@
 			name = Gameformation;
 			packageProductDependencies = (
 				E11FE8D52746365900265DC7 /* Alamofire */,
+				E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */,
 			);
 			productName = Gameformation;
 			productReference = E1319E8826C9333A00E7159D /* Gameformation.app */;
@@ -495,6 +498,7 @@
 			mainGroup = E1319E7F26C9333A00E7159D;
 			packageReferences = (
 				E11FE8D42746365900265DC7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E1E2ED44274761F00024F211 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = E1319E8926C9333A00E7159D /* Products */;
 			projectDirPath = "";
@@ -784,6 +788,14 @@
 				kind = branch;
 			};
 		};
+		E1E2ED44274761F00024F211 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -791,6 +803,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E11FE8D42746365900265DC7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1E2ED44274761F00024F211 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 
