@@ -29,4 +29,9 @@ final class Injection {
         let local = provideGameLocalRepository()
         return DetailInteractor(id: id, remoteRepository: remote, localRepository: local)
     }
+    
+    func provideFavoriteUseCase() -> FavoriteUseCase {
+        let local = provideGameLocalRepository()
+        return FavoriteInteractor(localRepository: local)
+    }
 }

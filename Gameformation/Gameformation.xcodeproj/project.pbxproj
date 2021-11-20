@@ -61,6 +61,7 @@
 		E1E2ED662747FA240024F211 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */; };
 		E1E33DF4274884390017C1A8 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF3274884390017C1A8 /* DetailInteractorTests.swift */; };
 		E1E33DF627491E6B0017C1A8 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF527491E6B0017C1A8 /* FavoriteInteractor.swift */; };
+		E1E33DF9274920600017C1A8 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 		E1E33DF3274884390017C1A8 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
 		E1E33DF527491E6B0017C1A8 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 		E11FE8C427461B8700265DC7 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				E1E33DF7274920550017C1A8 /* Presenter */,
 				E11FE8C827461BC800265DC7 /* View */,
 			);
 			path = Favorite;
@@ -550,6 +553,14 @@
 			path = DomainTests;
 			sourceTree = "<group>";
 		};
+		E1E33DF7274920550017C1A8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,6 +732,7 @@
 				E19E120026E2655300531720 /* AppDelegate.swift in Sources */,
 				E1319EB726C9437300E7159D /* View+Extension.swift in Sources */,
 				E1319EB426C93EB600E7159D /* CardView.swift in Sources */,
+				E1E33DF9274920600017C1A8 /* FavoritePresenter.swift in Sources */,
 				E146FE8126E30ABA00617D1D /* NotificationService.swift in Sources */,
 				E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */,
 				E11FE8B9274619D400265DC7 /* GameLocalDataSource.swift in Sources */,

@@ -21,7 +21,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            FavoriteView()
+            FavoriteView(presenter: FavoritePresenter(favoriteUseCase: Injection().provideFavoriteUseCase()))
                 .tabItem {
                     VStack {
                         Image(systemName: "heart")
