@@ -62,6 +62,8 @@
 		E1E33DF4274884390017C1A8 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF3274884390017C1A8 /* DetailInteractorTests.swift */; };
 		E1E33DF627491E6B0017C1A8 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF527491E6B0017C1A8 /* FavoriteInteractor.swift */; };
 		E1E33DF9274920600017C1A8 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */; };
+		E1E33DFB2749252C0017C1A8 /* Myself.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DFA2749252C0017C1A8 /* Myself.swift */; };
+		E1E33DFE2749264B0017C1A8 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DFD2749264B0017C1A8 /* AboutPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		E1E33DF3274884390017C1A8 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
 		E1E33DF527491E6B0017C1A8 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		E1E33DFA2749252C0017C1A8 /* Myself.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Myself.swift; sourceTree = "<group>"; };
+		E1E33DFD2749264B0017C1A8 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +297,7 @@
 		E11FE8C327461B7C00265DC7 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				E1E33DFC274926400017C1A8 /* Presenter */,
 				E11FE8C727461BC000265DC7 /* View */,
 			);
 			path = About;
@@ -523,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E2ED532747866E0024F211 /* GameRequest.swift */,
+				E1E33DFA2749252C0017C1A8 /* Myself.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -557,6 +563,14 @@
 			isa = PBXGroup;
 			children = (
 				E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E1E33DFC274926400017C1A8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E1E33DFD2749264B0017C1A8 /* AboutPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -718,6 +732,7 @@
 				E11FE8D8274657F800265DC7 /* PersistentContainer.swift in Sources */,
 				E1319EA526C9340200E7159D /* GameAPIService.swift in Sources */,
 				E1A47ABD26E10BAA0004CEB6 /* GameData.xcdatamodeld in Sources */,
+				E1E33DFE2749264B0017C1A8 /* AboutPresenter.swift in Sources */,
 				E19E120226E26BD500531720 /* EditProfileView.swift in Sources */,
 				E11FE8E02746AB0600265DC7 /* HomePresenter.swift in Sources */,
 				E1055F9826CA0A1700CE92D7 /* ActivityIndicatorView.swift in Sources */,
@@ -737,6 +752,7 @@
 				E1319E8C26C9333A00E7159D /* GameformationApp.swift in Sources */,
 				E11FE8B9274619D400265DC7 /* GameLocalDataSource.swift in Sources */,
 				E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */,
+				E1E33DFB2749252C0017C1A8 /* Myself.swift in Sources */,
 				E1A47ABF26E10DCF0004CEB6 /* FavoriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
