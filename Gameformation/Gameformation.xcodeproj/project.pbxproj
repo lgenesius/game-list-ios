@@ -64,6 +64,7 @@
 		E1E33DF9274920600017C1A8 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */; };
 		E1E33DFB2749252C0017C1A8 /* Myself.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DFA2749252C0017C1A8 /* Myself.swift */; };
 		E1E33DFE2749264B0017C1A8 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DFD2749264B0017C1A8 /* AboutPresenter.swift */; };
+		E1E33E00274929880017C1A8 /* FavoriteInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E33DFF274929880017C1A8 /* FavoriteInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		E1E33DF8274920600017C1A8 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		E1E33DFA2749252C0017C1A8 /* Myself.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Myself.swift; sourceTree = "<group>"; };
 		E1E33DFD2749264B0017C1A8 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
+		E1E33DFF274929880017C1A8 /* FavoriteInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +549,7 @@
 			children = (
 				E1E2ED652747FA240024F211 /* HomeInteractorTests.swift */,
 				E1E33DF3274884390017C1A8 /* DetailInteractorTests.swift */,
+				E1E33DFF274929880017C1A8 /* FavoriteInteractorTests.swift */,
 			);
 			path = UseCaseTests;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 			files = (
 				E1E2ED5E2747F9A10024F211 /* GameformationTests.swift in Sources */,
 				E1E2ED662747FA240024F211 /* HomeInteractorTests.swift in Sources */,
+				E1E33E00274929880017C1A8 /* FavoriteInteractorTests.swift in Sources */,
 				E1E33DF4274884390017C1A8 /* DetailInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
