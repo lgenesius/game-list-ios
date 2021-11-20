@@ -5,10 +5,6 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2274509804, green: 0.3803921569, blue: 0.5254901961, alpha: 1)), Color(#colorLiteral(red: 0.537254902, green: 0.1450980392, blue: 0.2431372549, alpha: 1))]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-                
                 ScrollView {
                     LazyVStack {
                         
@@ -33,9 +29,11 @@ struct HomeView: View {
                         }
                     }
                 }
-            }
-            .navigationTitle("Gameformation")
+                
+//            }
+            .navigationTitle(Text("Gameformation"))
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             presenter.beginProcess()
         }

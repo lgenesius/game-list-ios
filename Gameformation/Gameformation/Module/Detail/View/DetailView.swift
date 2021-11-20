@@ -5,38 +5,33 @@ struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
     
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2274509804, green: 0.3803921569, blue: 0.5254901961, alpha: 1)), Color(#colorLiteral(red: 0.537254902, green: 0.1450980392, blue: 0.2431372549, alpha: 1))]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-            
+        ScrollView {
             ActivityIndicatorView(isLoading: presenter.isLoading, error: presenter.error) {
                 presenter.getGame()
             }
             
-            ScrollView {
-                LazyVStack {
-                    if let game = presenter.game {
-                        DetailImageView(imageManager: ImageManager(url: game.backgroundImageURL))
-                        
-                        if let platforms = game.platforms {
-                            PlatformsView(platforms: platforms)
+            LazyVStack {
+                if let game = presenter.game {
+                    DetailImageView(imageManager: ImageManager(url: game.backgroundImageURL))
+                    
+                    if let platforms = game.platforms {
+                        PlatformsView(platforms: platforms)
+                    }
+                    
+                    if let gameDescription = game.gameDescription {
+                        HStack {
+                            Text(gameDescription)
+                                .foregroundColor(.white)
+                                .font(Font.system(size: 17))
+                                .padding()
+                            Spacer()
                         }
-                        
-                        if let gameDescription = game.gameDescription {
-                            HStack {
-                                Text(gameDescription)
-                                    .foregroundColor(.white)
-                                    .font(Font.system(size: 17))
-                                    .padding()
-                                Spacer()
-                            }
-                        }
-                        
-                        RatingReleasedDateView(game: game)
-
-                        if let publishers = game.publishers {
-                            PublisherView(publishers: publishers)
-                        }
+                    }
+                    
+                    RatingReleasedDateView(game: game)
+                    
+                    if let publishers = game.publishers {
+                        PublisherView(publishers: publishers)
                     }
                 }
             }

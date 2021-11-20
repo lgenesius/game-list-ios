@@ -1,6 +1,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white ]
+    }
+    
     var body: some View {
         TabView {
             HomeView(presenter: HomePresenter(homeUseCase: Injection().provideHomeUseCase()))

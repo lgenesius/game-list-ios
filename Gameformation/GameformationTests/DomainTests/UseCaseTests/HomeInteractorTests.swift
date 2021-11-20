@@ -28,7 +28,6 @@ class HomeInteractorTests: XCTestCase {
         var nextPage: String?
         
         homeUseCase.getGames()
-            .receive(on: RunLoop.main)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -62,7 +61,6 @@ class HomeInteractorTests: XCTestCase {
         
         let query = "Dota"
         homeUseCase.searchGame(query: query)
-            .receive(on: RunLoop.main)
             .sink { completion in
                 switch completion {
                 case .finished:
