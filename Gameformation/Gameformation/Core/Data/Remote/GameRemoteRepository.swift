@@ -10,10 +10,10 @@ import Combine
 
 protocol GameRemoteRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<(String?, [Game]), Error>
-    func getGame(id: Int) -> AnyPublisher<Game, Error>
-    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error>
-    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error>
+    func getGames() -> AnyPublisher<(String?, [GameModel]), Error>
+    func getGame(id: Int) -> AnyPublisher<DetailGameModel, Error>
+    func searchGame(query: String) -> AnyPublisher<(String?, [GameModel]), Error>
+    func nextGames(url: URL) -> AnyPublisher<(String?, [GameModel]), Error>
 }
 
 final class GameRemoteRepository {
@@ -31,25 +31,27 @@ final class GameRemoteRepository {
 
 extension GameRemoteRepository: GameRemoteRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<(String?, [Game]), Error> {
+    func getGames() -> AnyPublisher<(String?, [GameModel]), Error> {
         return remote.getGames()
-            .map { ($0.next, $0.games) }
+            .map { ($0.next, GameMapper.mapGameResponseToGameModels(input: $0)) }
             .eraseToAnyPublisher()
     }
     
-    func getGame(id: Int) -> AnyPublisher<Game, Error> {
+    func getGame(id: Int) -> AnyPublisher<DetailGameModel, Error> {
         return remote.getGame(id: id)
-    }
-    
-    func searchGame(query: String) -> AnyPublisher<(String?, [Game]), Error> {
-        return remote.searchGame(query: query)
-            .map { ($0.next, $0.games) }
+            .map { Converter.fromGameToDetailGameModel($0) }
             .eraseToAnyPublisher()
     }
     
-    func nextGames(url: URL) -> AnyPublisher<(String?, [Game]), Error> {
+    func searchGame(query: String) -> AnyPublisher<(String?, [GameModel]), Error> {
+        return remote.searchGame(query: query)
+            .map { ($0.next, GameMapper.mapGameResponseToGameModels(input: $0)) }
+            .eraseToAnyPublisher()
+    }
+    
+    func nextGames(url: URL) -> AnyPublisher<(String?, [GameModel]), Error> {
         return remote.nextGames(url: url)
-            .map { ($0.next, $0.games) }
+            .map { ($0.next, GameMapper.mapGameResponseToGameModels(input: $0)) }
             .eraseToAnyPublisher()
     }
     

@@ -10,7 +10,7 @@ import Combine
 
 protocol FavoriteUseCase {
     
-    func getGameEntities() -> AnyPublisher<[GameEntity], Error>
+    func getGameEntities() -> AnyPublisher<[GameModel], Error>
 }
 
 class FavoriteInteractor {
@@ -24,7 +24,7 @@ class FavoriteInteractor {
 
 extension FavoriteInteractor: FavoriteUseCase {
     
-    func getGameEntities() -> AnyPublisher<[GameEntity], Error> {
+    func getGameEntities() -> AnyPublisher<[GameModel], Error> {
         localRepository.getGames()
     }
 }

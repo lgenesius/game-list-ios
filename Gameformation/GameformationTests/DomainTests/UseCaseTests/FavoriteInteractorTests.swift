@@ -39,4 +39,9 @@ class FavoriteInteractorTests: XCTestCase {
         
         XCTAssertNil(error)
     }
+    
+    deinit {
+        cancelable?.cancel()
+        cancelable = nil
+    }
 }

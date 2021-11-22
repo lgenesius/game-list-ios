@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class FavoritePresenter: ObservableObject {
-    @Published var gameEntities: [GameEntity] = []
+    @Published var gameModels: [GameModel] = []
     
     private let router = TabRouter()
     private var cancelable: AnyCancellable?
@@ -23,14 +23,14 @@ class FavoritePresenter: ObservableObject {
     func getGameEntities() {
         cancelable?.cancel()
         cancelable = nil
-        gameEntities = []
+        gameModels = []
         
         cancelable = favoriteUseCase.getGameEntities()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in
                 
             }, receiveValue: { [weak self] games in
-                self?.gameEntities = games
+                self?.gameModels = games
             })
     }
     

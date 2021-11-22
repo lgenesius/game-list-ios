@@ -10,10 +10,10 @@ import Combine
 
 protocol GameLocalRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<[GameEntity], Error>
-    func getGame(with id: Int) -> AnyPublisher<GameEntity?, Error>
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never>
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never>
+    func getGames() -> AnyPublisher<[GameModel], Error>
+    func getGame(with id: Int) -> AnyPublisher<DetailGameModel?, Error>
+    func addGame(request game: GameModel) -> AnyPublisher<Bool, Never>
+    func deleteGame(id: Int) -> AnyPublisher<Bool, Never>
 }
 
 final class GameLocalRepository {
@@ -31,19 +31,23 @@ final class GameLocalRepository {
 
 extension GameLocalRepository: GameLocalRepositoryProtocol {
     
-    func getGames() -> AnyPublisher<[GameEntity], Error> {
-        local.getGames()
+    func getGames() -> AnyPublisher<[GameModel], Error> {
+        return local.getGames()
+            .map { GameMapper.mapGameEntitiesToGameModels(input: $0) }
+            .eraseToAnyPublisher()
     }
     
-    func getGame(with id: Int) -> AnyPublisher<GameEntity?, Error> {
-        local.getGame(with: id)
+    func getGame(with id: Int) -> AnyPublisher<DetailGameModel?, Error> {
+        return local.getGame(with: id)
+            .map { Converter.fromGameEntitytoDetailGameModel($0) }
+            .eraseToAnyPublisher()
     }
     
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never> {
-        local.addGame(request: game)
+    func addGame(request game: GameModel) -> AnyPublisher<Bool, Never> {
+        local.addGame(id: game.id, name: game.name, released: game.released, overallRating: game.overallRating, backgroundImage: game.backgroundImage)
     }
     
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never> {
-        local.deleteGame(game: game)
+    func deleteGame(id: Int) -> AnyPublisher<Bool, Never> {
+        local.deleteGame(id: id)
     }
 }

@@ -34,8 +34,8 @@ extension GameRemoteDataSource: GameRemoteDataSourceProtocol {
                         switch response.result {
                         case .success(let value):
                             completion(.success(value))
-                        case .failure(_):
-                            completion(.failure(APIError.invalidResponse))
+                        case .failure(let error):
+                            completion(.failure(error))
                         }
                     }
             }
@@ -52,8 +52,8 @@ extension GameRemoteDataSource: GameRemoteDataSourceProtocol {
                         switch response.result {
                         case .success(let value):
                             completion(.success(value))
-                        case .failure(_):
-                            completion(.failure(APIError.invalidResponse))
+                        case .failure(let error):
+                            completion(.failure(error))
                         }
                     }
             }
@@ -70,8 +70,8 @@ extension GameRemoteDataSource: GameRemoteDataSourceProtocol {
                         switch response.result {
                         case .success(let value):
                             completion(.success(value))
-                        case .failure(_):
-                            completion(.failure(APIError.invalidResponse))
+                        case .failure(let error):
+                            completion(.failure(error))
                         }
                     }
             }
@@ -87,8 +87,8 @@ extension GameRemoteDataSource: GameRemoteDataSourceProtocol {
                     switch response.result {
                     case .success(let value):
                         completion(.success(value))
-                    case .failure(_):
-                        completion(.failure(APIError.invalidResponse))
+                    case .failure(let error):
+                        completion(.failure(error))
                     }
                 }
         }

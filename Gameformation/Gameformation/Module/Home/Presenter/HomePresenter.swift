@@ -17,7 +17,7 @@ class HomePresenter: ObservableObject {
     private let homeUseCase: HomeUseCase
     
     @Published var query = ""
-    @Published var games: [Game] = []
+    @Published var games: [GameModel] = []
     @Published var isLoading = false
     @Published var error: NSError?
     
@@ -53,9 +53,9 @@ class HomePresenter: ObservableObject {
         homeUseCase.searchGame(query: query)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
+                self?.isLoading = false
                 switch completion {
                 case .finished:
-                    self?.isLoading = false
                     self?.error = nil
                 case .failure(let error):
                     self?.error = error as NSError?
@@ -72,9 +72,9 @@ class HomePresenter: ObservableObject {
         homeUseCase.getGames()
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
+                self?.isLoading = false
                 switch completion {
                 case .finished:
-                    self?.isLoading = false
                     self?.error = nil
                 case .failure(let error):
                     self?.error = error as NSError?
@@ -86,15 +86,15 @@ class HomePresenter: ObservableObject {
             .store(in: &cancelables)
     }
     
-    func loadNextGames(game: Game) {
+    func loadNextGames(game: GameModel) {
         guard let lastGame = games.last, game.id == lastGame.id, let nextURL = nextGamesURL() else { return }
         isLoading = true
         homeUseCase.nextGames(url: nextURL)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
+                self?.isLoading = false
                 switch completion {
                 case .finished:
-                    self?.isLoading = false
                     self?.error = nil
                 case .failure(let error):
                     self?.error = error as NSError?

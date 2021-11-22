@@ -23,7 +23,7 @@ enum ParentView {
 }
 
 class DetailPresenter: ObservableObject {
-    @Published var game: Game?
+    @Published var game: DetailGameModel?
     @Published var isLoading = false
     @Published var error: NSError?
     @Published var isFavorited = false
@@ -88,8 +88,8 @@ class DetailPresenter: ObservableObject {
         guard let game = game else { return }
         
         if !isFavorited {
-            let gameRequest = GameRequest(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, overallRating: game.overallRating)
-            detailUseCase.addGame(request: gameRequest)
+            let request = GameModel(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, overallRating: game.overallRating)
+            detailUseCase.addGame(request: request)
                 .receive(on: RunLoop.main)
                 .sink { [weak self] status in
                     if status {
@@ -103,20 +103,7 @@ class DetailPresenter: ObservableObject {
     }
     
     private func favoriteTrailingToolbarAction() {
-        detailUseCase.getGameEntity()
-            .receive(on: RunLoop.main)
-            .sink { _ in
-                
-            } receiveValue: { [weak self] gameEntity in
-                if let entity = gameEntity {
-                    self?.deleteGameEntity(entity: entity)
-                }
-            }
-            .store(in: &cancelables)
-    }
-    
-    private func deleteGameEntity(entity: GameEntity) {
-        detailUseCase.deleteGame(game: entity)
+        detailUseCase.deleteGame()
             .receive(on: RunLoop.main)
             .sink { status in
                 if status {

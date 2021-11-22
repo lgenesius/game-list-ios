@@ -9,12 +9,6 @@ import XCTest
 import Combine
 @testable import Gameformation
 
-extension Game: Equatable {
-    public static func == (lhs: Game, rhs: Game) -> Bool {
-        true
-    }
-}
-
 class HomeInteractorTests: XCTestCase {
     private let homeUseCase = Injection().provideHomeUseCase()
     
@@ -24,7 +18,7 @@ class HomeInteractorTests: XCTestCase {
         let expectation = self.expectation(description: "GetGames")
         
         var error: Error?
-        var games: [Game] = []
+        var games: [GameModel] = []
         var nextPage: String?
         
         homeUseCase.getGames()
@@ -56,7 +50,7 @@ class HomeInteractorTests: XCTestCase {
         let expectation = self.expectation(description: "SearchGames")
         
         var error: Error?
-        var games: [Game] = []
+        var games: [GameModel] = []
         var nextPage: String?
         
         let query = "Dota"
@@ -89,7 +83,7 @@ class HomeInteractorTests: XCTestCase {
         let expectation = self.expectation(description: "NextGames")
         
         var error: Error?
-        var games: [Game] = []
+        var games: [GameModel] = []
         var nextPage: String?
         
         let urlString = API.Endpoint.search(query: "Dota").urlString + "&page=2"

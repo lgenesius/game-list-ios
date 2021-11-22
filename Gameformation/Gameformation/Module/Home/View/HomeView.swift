@@ -14,7 +14,7 @@ struct HomeView: View {
                         if let gameResults = presenter.games {
                             ForEach(gameResults) { game in
                                 presenter.linkBuilder(with: game.id) {
-                                    CardView(game: Converter.fromGameToGameRequest(game))
+                                    CardView(game: game)
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 5)
                                         .onAppear {

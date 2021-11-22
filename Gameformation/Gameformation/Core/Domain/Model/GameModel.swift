@@ -1,13 +1,13 @@
 //
-//  GameRequest.swift
+//  GameModel.swift
 //  Gameformation
 //
-//  Created by Luis Genesius on 19/11/21.
+//  Created by Luis Genesius on 22/11/21.
 //
 
 import Foundation
 
-struct GameRequest {
+struct GameModel: Identifiable, Equatable {
     let id: Int
     let name: String
     let released: String?

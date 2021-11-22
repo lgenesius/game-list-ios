@@ -106,13 +106,13 @@ struct DetailImageView: View {
 }
 
 struct PlatformsView: View {
-    let platforms: [Platform]
+    let platforms: [PlatformModel]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(platforms, id: \.self) { platform in
-                    PlatformView(platformName: platform.platform.name)
+                ForEach(platforms) { platform in
+                    PlatformView(platformName: platform.name)
                         .padding(.horizontal, 5)
                 }
             }
@@ -122,7 +122,7 @@ struct PlatformsView: View {
 }
 
 struct RatingReleasedDateView: View {
-    let game: Game
+    let game: DetailGameModel
     
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
@@ -154,7 +154,7 @@ struct RatingReleasedDateView: View {
 }
 
 struct PublisherView: View {
-    let publishers: [Publisher]
+    let publishers: [PublisherModel]
     
     var body: some View {
         HStack {
@@ -166,7 +166,7 @@ struct PublisherView: View {
         .padding(.top, 15)
         .padding(.bottom, 2)
         VStack {
-            ForEach(publishers, id: \.self) { publisher in
+            ForEach(publishers) { publisher in
                 HStack {
                     Text(publisher.name)
                         .dateCardStyle()

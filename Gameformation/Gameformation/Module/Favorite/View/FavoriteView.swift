@@ -8,10 +8,10 @@ struct FavoriteView: View {
             ScrollView {
                 LazyVStack {
                     
-                    if !presenter.gameEntities.isEmpty {
-                        ForEach(presenter.gameEntities) { game in
+                    if !presenter.gameModels.isEmpty {
+                        ForEach(presenter.gameModels) { game in
                             presenter.linkBuilder(with: Int(game.id)) {
-                                CardView(game: Converter.fromGameEntityToGameRequest(game))
+                                CardView(game: game)
                                     .padding(.horizontal, 10)
                                     .padding(.vertical, 5)
                             }

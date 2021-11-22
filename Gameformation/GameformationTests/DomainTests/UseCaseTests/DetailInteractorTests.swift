@@ -18,7 +18,7 @@ class DetailInteractorTests: XCTestCase {
         let expectation = self.expectation(description: "GetGame")
         
         var error: Error?
-        var game: Game?
+        var game: DetailGameModel?
         
         detailUseCase.getGame()
             .sink { completion in
@@ -51,7 +51,7 @@ class DetailInteractorTests: XCTestCase {
         
         let gameName = "Grand Theft Auto V"
         let backgroundImage = "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
-        let gameRequest = GameRequest(id: 3498, name: gameName, released: "2013-09-17", backgroundImage: backgroundImage, overallRating: 4.48)
+        let gameRequest = GameModel(id: 3498, name: gameName, released: "2013-09-17", backgroundImage: backgroundImage, overallRating: 4.48)
         detailUseCase.addGame(request: gameRequest)
             .sink { statusAddGame in
                 status = statusAddGame
@@ -67,7 +67,7 @@ class DetailInteractorTests: XCTestCase {
     func testGetGameEntity() {
         let expectation = self.expectation(description: "GetGameEntity")
         var error: Error?
-        var gameEntity: GameEntity?
+        var gameEntity: DetailGameModel?
         
         detailUseCase.getGameEntity()
             .sink { completion in
@@ -89,15 +89,13 @@ class DetailInteractorTests: XCTestCase {
         XCTAssertNil(error)
         XCTAssertNotNil(gameEntity)
         XCTAssertEqual(3498, Int(gameEntity!.id))
-        
-        deleteGame(game: gameEntity!)
     }
     
-    private func deleteGame(game: GameEntity) {
+    func testDeleteGame() {
         let secondExpectation = self.expectation(description: "DeleteGameEntity")
         var status = false
         
-        detailUseCase.deleteGame(game: game)
+        detailUseCase.deleteGame()
             .sink { statusDelete in
                 status = statusDelete
                 secondExpectation.fulfill()

@@ -2,7 +2,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CardView: View {
-    let game: GameRequest
+    let game: GameModel
     
     var body: some View {
         HStack(spacing: 20) {

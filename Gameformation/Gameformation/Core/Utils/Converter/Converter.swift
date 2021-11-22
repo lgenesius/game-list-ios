@@ -10,15 +10,29 @@ import Foundation
 // swiftlint:disable all
 final class Converter {
     
-    static func fromGameEntityToGame(_ game: GameEntity) -> Game {
-        return Game(id: Int(game.id), name: game.name!, released: game.released!, backgroundImage: game.backgroundImage!, overallRating: game.overallRating, platforms: nil, publishers: nil, gameDescription: nil)
+    static func fromGameToDetailGameModel(_ game: Game) -> DetailGameModel {
+        return DetailGameModel(
+            id: game.id,
+            name: game.name,
+            released: game.released,
+            backgroundImage: game.backgroundImage,
+            overallRating: game.overallRating,
+            platforms: PlatformMapper.mapPlatformsToPlatformModels(input: game.platforms ?? []),
+            publishers: PublisherMapper.mapPublishersToPublisherModels(input: game.publishers ?? []),
+            gameDescription: game.gameDescription)
     }
     
-    static func fromGameToGameRequest(_ game: Game) -> GameRequest {
-        return GameRequest(id: game.id, name: game.name, released: game.released, backgroundImage: game.backgroundImage, overallRating: game.overallRating)
-    }
-    
-    static func fromGameEntityToGameRequest(_ game: GameEntity) -> GameRequest {
-        return GameRequest(id: Int(game.id), name: game.name ?? "", released: game.released ?? "", backgroundImage: game.backgroundImage ?? "", overallRating: game.overallRating)
+    static func fromGameEntitytoDetailGameModel(_ game: GameEntity?) -> DetailGameModel? {
+        guard let game = game else { return nil }
+        return DetailGameModel(
+            id: Int(game.id),
+            name: game.name ?? "Unknown",
+            released: game.released,
+            backgroundImage: game.backgroundImage,
+            overallRating: game.overallRating,
+            platforms: nil,
+            publishers: nil,
+            gameDescription: nil
+        )
     }
 }

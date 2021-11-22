@@ -13,8 +13,8 @@ protocol GameLocalDataSourceProtocol {
     
     func getGames() -> AnyPublisher<[GameEntity], Error>
     func getGame(with id: Int) -> AnyPublisher<GameEntity?, Error>
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never>
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never>
+    func addGame(id: Int, name: String?, released: String?, overallRating: Double, backgroundImage: String?) -> AnyPublisher<Bool, Never>
+    func deleteGame(id: Int) -> AnyPublisher<Bool, Never>
 }
 
 final class GameLocalDataSource {
@@ -56,14 +56,14 @@ extension GameLocalDataSource: GameLocalDataSourceProtocol {
         .eraseToAnyPublisher()
     }
     
-    func addGame(request gameRequest: GameRequest) -> AnyPublisher<Bool, Never> {
+    func addGame(id: Int, name: String?, released: String?, overallRating: Double, backgroundImage: String?) -> AnyPublisher<Bool, Never> {
         return Future<Bool, Never> { [weak self] completion in
             let game = GameEntity(context: PersistentContainer.viewContext)
-            game.id = Int32(gameRequest.id)
-            game.name = gameRequest.name
-            game.released = gameRequest.released
-            game.overallRating = gameRequest.overallRating
-            game.backgroundImage = gameRequest.backgroundImage
+            game.id = Int32(id)
+            game.name = name
+            game.released = released
+            game.overallRating = overallRating
+            game.backgroundImage = backgroundImage
             
             do {
                 try self?.save()
@@ -76,11 +76,20 @@ extension GameLocalDataSource: GameLocalDataSourceProtocol {
         .eraseToAnyPublisher()
     }
     
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never> {
+    func deleteGame(id: Int) -> AnyPublisher<Bool, Never> {
         return Future<Bool, Never> { [weak self] completion in
-            PersistentContainer.viewContext.delete(game)
+            let fetchRequest: NSFetchRequest<GameEntity> = GameEntity.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %d", Int32(id))
             
             do {
+                let games = try PersistentContainer.viewContext.fetch(fetchRequest)
+                guard let gameEntity = games.first else {
+                    completion(.success(false))
+                    return
+                }
+                
+                PersistentContainer.viewContext.delete(gameEntity)
+                
                 try self?.save()
                 completion(.success(true))
             } catch {

@@ -10,10 +10,10 @@ import Combine
 
 protocol DetailUseCase {
     
-    func getGame() -> AnyPublisher<Game, Error>
-    func getGameEntity() -> AnyPublisher<GameEntity?, Error>
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never>
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never>
+    func getGame() -> AnyPublisher<DetailGameModel, Error>
+    func getGameEntity() -> AnyPublisher<DetailGameModel?, Error>
+    func addGame(request game: GameModel) -> AnyPublisher<Bool, Never>
+    func deleteGame() -> AnyPublisher<Bool, Never>
 }
 
 class DetailInteractor {
@@ -30,19 +30,19 @@ class DetailInteractor {
 
 extension DetailInteractor: DetailUseCase {
     
-    func getGame() -> AnyPublisher<Game, Error> {
+    func getGame() -> AnyPublisher<DetailGameModel, Error> {
         remoteRepository.getGame(id: id)
     }
     
-    func getGameEntity() -> AnyPublisher<GameEntity?, Error> {
+    func getGameEntity() -> AnyPublisher<DetailGameModel?, Error> {
         localRepository.getGame(with: id)
     }
     
-    func addGame(request game: GameRequest) -> AnyPublisher<Bool, Never> {
+    func addGame(request game: GameModel) -> AnyPublisher<Bool, Never> {
         localRepository.addGame(request: game)
     }
     
-    func deleteGame(game: GameEntity) -> AnyPublisher<Bool, Never> {
-        localRepository.deleteGame(game: game)
+    func deleteGame() -> AnyPublisher<Bool, Never> {
+        localRepository.deleteGame(id: id)
     }
 }
