@@ -1,0 +1,10 @@
+workflows:
+  gameformation-workflow:
+    name: Gameformation Pipeline
+    scripts:
+      - name: CI/CD Started
+        script: echo "Welcome to Gameformation CI/CD setup"
+    publishing:
+      email:
+        recipients:
+          - luis.huang321@gmail.com
