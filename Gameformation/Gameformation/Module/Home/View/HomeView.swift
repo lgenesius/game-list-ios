@@ -1,4 +1,5 @@
 import SwiftUI
+import Common
 
 struct HomeView: View {
     @ObservedObject var presenter: HomePresenter
@@ -29,8 +30,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                
-//            }
             .navigationTitle(Text("Gameformation"))
         }
         .navigationViewStyle(StackNavigationViewStyle())

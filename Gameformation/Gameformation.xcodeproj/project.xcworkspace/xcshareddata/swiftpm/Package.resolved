@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Common",
+        "repositoryURL": "https://github.com/lgenesius/luis-dicoding-common.git",
+        "state": {
+          "branch": null,
+          "revision": "29a6bd635aaf1f78b4d039857344cef45f2c65a8",
+          "version": "1.0.1"
+        }
+      },
+      {
         "package": "SDWebImage",
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
