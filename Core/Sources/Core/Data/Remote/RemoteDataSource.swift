@@ -8,13 +8,12 @@
 import Combine
 import Foundation
 
-public protocol RemoteRepository {
+public protocol RemoteDataSource {
     associatedtype Request
     associatedtype Response
-    associatedtype DetailResponse
     
     func list(request: Request?) -> AnyPublisher<(String?, [Response]), Error>
-    func get(id: Int) -> AnyPublisher<DetailResponse, Error>
+    func get(id: Int) -> AnyPublisher<Response, Error>
     func search(query: String) -> AnyPublisher<(String?, [Response]), Error>
     func next(url: URL) -> AnyPublisher<(String?, [Response]), Error>
 }

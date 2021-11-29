@@ -41,6 +41,8 @@
 		E1A47ABF26E10DCF0004CEB6 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */; };
 		E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */; };
 		E1DAF2B62750B8E200484F52 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = E1DAF2B52750B8E200484F52 /* Common */; };
+		E1DF4E6E2753768500D0FAD1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E1DF4E6D2753768500D0FAD1 /* Core */; };
+		E1DF4E702753768A00D0FAD1 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = E1DF4E6F2753768A00D0FAD1 /* Home */; };
 		E1E2ED4327475B840024F211 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED4227475B840024F211 /* Injection.swift */; };
 		E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */; };
 		E1E2ED49274763E80024F211 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2ED48274763E80024F211 /* Converter.swift */; };
@@ -109,6 +111,7 @@
 		E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		E1DF4E6A275344DC00D0FAD1 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = ../Core; sourceTree = "<group>"; };
+		E1DF4E6B2753746300D0FAD1 /* Home */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Home; path = ../Home; sourceTree = "<group>"; };
 		E1E2ED4227475B840024F211 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		E1E2ED48274763E80024F211 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		E1E2ED4A27477C260024F211 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
@@ -136,7 +139,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */,
+				E1DF4E6E2753768500D0FAD1 /* Core in Frameworks */,
 				E11FE8D62746365900265DC7 /* Alamofire in Frameworks */,
+				E1DF4E702753768A00D0FAD1 /* Home in Frameworks */,
 				E1DAF2B62750B8E200484F52 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,9 +410,11 @@
 			isa = PBXGroup;
 			children = (
 				E1DF4E6A275344DC00D0FAD1 /* Core */,
+				E1DF4E6B2753746300D0FAD1 /* Home */,
 				E1319E8A26C9333A00E7159D /* Gameformation */,
 				E1E2ED5C2747F9A10024F211 /* GameformationTests */,
 				E1319E8926C9333A00E7159D /* Products */,
+				E1DF4E6C2753768500D0FAD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -460,6 +467,13 @@
 				E1319EB626C9437300E7159D /* View+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E1DF4E6C2753768500D0FAD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E1E2ED4127475B620024F211 /* DI */ = {
@@ -585,6 +599,8 @@
 				E11FE8D52746365900265DC7 /* Alamofire */,
 				E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */,
 				E1DAF2B52750B8E200484F52 /* Common */,
+				E1DF4E6D2753768500D0FAD1 /* Core */,
+				E1DF4E6F2753768A00D0FAD1 /* Home */,
 			);
 			productName = Gameformation;
 			productReference = E1319E8826C9333A00E7159D /* Gameformation.app */;
@@ -1045,6 +1061,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1DAF2B42750B8E200484F52 /* XCRemoteSwiftPackageReference "luis-dicoding-common" */;
 			productName = Common;
+		};
+		E1DF4E6D2753768500D0FAD1 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		E1DF4E6F2753768A00D0FAD1 /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 		E1E2ED45274761F00024F211 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
