@@ -8,6 +8,7 @@
 import Foundation
 import Core
 import Combine
+import GamePackage
 
 public struct HomeInteractor<Request, Response, R: RemoteRepository>: HomeUseCase where R.Request == Request, R.Response == Response {
     private let _repository: R

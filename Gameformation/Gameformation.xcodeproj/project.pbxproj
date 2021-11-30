@@ -35,6 +35,7 @@
 		E1319EB726C9437300E7159D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1319EB626C9437300E7159D /* View+Extension.swift */; };
 		E146FE8126E30ABA00617D1D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146FE8026E30ABA00617D1D /* NotificationService.swift */; };
 		E146FE8326E30C0100617D1D /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146FE8226E30C0100617D1D /* DateService.swift */; };
+		E18912E92756342F006D721C /* GamePackage in Frameworks */ = {isa = PBXBuildFile; productRef = E18912E82756342F006D721C /* GamePackage */; };
 		E19E120026E2655300531720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E11FF26E2655300531720 /* AppDelegate.swift */; };
 		E19E120226E26BD500531720 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E120126E26BD500531720 /* EditProfileView.swift */; };
 		E1A47ABD26E10BAA0004CEB6 /* GameData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1A47ABB26E10BAA0004CEB6 /* GameData.xcdatamodeld */; };
@@ -105,6 +106,7 @@
 		E1319EB626C9437300E7159D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		E146FE8026E30ABA00617D1D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E146FE8226E30C0100617D1D /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
+		E18912E727563409006D721C /* GamePackage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GamePackage; path = ../GamePackage; sourceTree = "<group>"; };
 		E19E11FF26E2655300531720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19E120126E26BD500531720 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E1A47ABC26E10BAA0004CEB6 /* GameData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameData.xcdatamodel; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */,
+				E18912E92756342F006D721C /* GamePackage in Frameworks */,
 				E1DF4E6E2753768500D0FAD1 /* Core in Frameworks */,
 				E11FE8D62746365900265DC7 /* Alamofire in Frameworks */,
 				E1DF4E702753768A00D0FAD1 /* Home in Frameworks */,
@@ -410,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				E1DF4E6A275344DC00D0FAD1 /* Core */,
+				E18912E727563409006D721C /* GamePackage */,
 				E1DF4E6B2753746300D0FAD1 /* Home */,
 				E1319E8A26C9333A00E7159D /* Gameformation */,
 				E1E2ED5C2747F9A10024F211 /* GameformationTests */,
@@ -601,6 +605,7 @@
 				E1DAF2B52750B8E200484F52 /* Common */,
 				E1DF4E6D2753768500D0FAD1 /* Core */,
 				E1DF4E6F2753768A00D0FAD1 /* Home */,
+				E18912E82756342F006D721C /* GamePackage */,
 			);
 			productName = Gameformation;
 			productReference = E1319E8826C9333A00E7159D /* Gameformation.app */;
@@ -1056,6 +1061,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E11FE8D42746365900265DC7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E18912E82756342F006D721C /* GamePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GamePackage;
 		};
 		E1DAF2B52750B8E200484F52 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;

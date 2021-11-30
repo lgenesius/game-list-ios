@@ -8,6 +8,7 @@
 import Foundation
 import Home
 import Core
+import GamePackage
 
 // swiftlint:disable all
 final class Injection {

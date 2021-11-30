@@ -4,35 +4,33 @@
 import PackageDescription
 
 let package = Package(
-    name: "Home",
+    name: "GamePackage",
     platforms: [.iOS(.v14)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "Home",
-            targets: ["Home"]),
+            name: "GamePackage",
+            targets: ["GamePackage"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.4")),
         .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", .upToNextMajor(from: "2.0.2")),
-        .package(path: "../Core"),
-        .package(path: "../GamePackage")
+        .package(path: "../Core")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "Home",
+            name: "GamePackage",
             dependencies: [
                 "Core",
                 "Alamofire",
-                "SDWebImageSwiftUI",
-                "GamePackage"
+                "SDWebImageSwiftUI"
             ]),
         .testTarget(
-            name: "HomeTests",
-            dependencies: ["Home"]),
+            name: "GamePackageTests",
+            dependencies: ["GamePackage"]),
     ]
 )

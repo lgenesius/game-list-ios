@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Core
+import GamePackage
 
 public struct HomeView<Destination: View>: View {
     @ObservedObject var presenter: HomePresenter
