@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import Core
 import Combine
 import Alamofire
+import Core
 
 public struct GameRemoteDataSource: RemoteDataSource {
     public typealias Request = Any
     public typealias Response = Game
+    
+    public init() {}
     
     public func list(request: Any?) -> AnyPublisher<(String?, [Game]), Error> {
         return Future<(String?, [Game]), Error> { completion in

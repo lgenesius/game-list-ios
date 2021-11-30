@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 struct GameModel: Identifiable, Equatable {
     let id: Int
     let name: String
@@ -20,3 +21,4 @@ struct GameModel: Identifiable, Equatable {
         return url
     }
 }
+*/

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/*
 protocol DetailUseCase {
     
     func getGame() -> AnyPublisher<DetailGameModel, Error>
@@ -46,3 +47,4 @@ extension DetailInteractor: DetailUseCase {
         localRepository.deleteGame(id: id)
     }
 }
+*/

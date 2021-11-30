@@ -14,6 +14,14 @@ public struct GameModel: Identifiable, Equatable {
     let backgroundImage: String?
     let overallRating: Double
     
+    public init(id: Int, name: String, released: String?, backgroundImage: String?, overallRating: Double) {
+        self.id = id
+        self.name = name
+        self.released = released
+        self.backgroundImage = backgroundImage
+        self.overallRating = overallRating
+    }
+    
     var backgroundImageURL: URL? {
         guard let imageURL = self.backgroundImage else { return nil }
         let url = URL(string: imageURL)

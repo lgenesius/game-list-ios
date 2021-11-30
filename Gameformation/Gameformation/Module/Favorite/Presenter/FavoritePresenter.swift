@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+/*
 class FavoritePresenter: ObservableObject {
     @Published var gameModels: [GameModel] = []
     
@@ -43,3 +44,4 @@ class FavoritePresenter: ObservableObject {
         cancelable = nil
     }
 }
+*/

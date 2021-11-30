@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import Combine
 
+/*
 protocol GameRemoteDataSourceProtocol {
     
     func getGames() -> AnyPublisher<GameResponse, Error>
@@ -95,3 +96,4 @@ extension GameRemoteDataSource: GameRemoteDataSourceProtocol {
         .eraseToAnyPublisher()
     }
 }
+*/

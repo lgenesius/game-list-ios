@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/*
 protocol HomeUseCase {
     
     func getGames() -> AnyPublisher<(String?, [GameModel]), Error>
@@ -38,3 +39,4 @@ extension HomeInteractor: HomeUseCase {
         return repository.nextGames(url: url)
     }
 }
+*/

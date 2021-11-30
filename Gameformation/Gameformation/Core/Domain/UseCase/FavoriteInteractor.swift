@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/*
 protocol FavoriteUseCase {
     
     func getGameEntities() -> AnyPublisher<[GameModel], Error>
@@ -28,3 +29,4 @@ extension FavoriteInteractor: FavoriteUseCase {
         localRepository.getGames()
     }
 }
+*/

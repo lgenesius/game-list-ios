@@ -16,6 +16,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.4")),
+        .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", .upToNextMajor(from: "2.0.2")),
         .package(path: "../Core")
     ],
     targets: [
@@ -23,7 +24,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Home",
-            dependencies: []),
+            dependencies: [
+                "Core",
+                "Alamofire",
+                "SDWebImageSwiftUI"
+            ]),
         .testTarget(
             name: "HomeTests",
             dependencies: ["Home"]),

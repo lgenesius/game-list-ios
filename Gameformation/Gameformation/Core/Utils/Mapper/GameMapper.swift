@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 final class GameMapper {
     
     static func mapGameResponseToGameModels(input gameResponse: GameResponse) -> [GameModel] {
@@ -33,3 +34,4 @@ final class GameMapper {
         }
     }
 }
+*/

@@ -1,6 +1,8 @@
 import SwiftUI
+import Home
 
 struct ContentView: View {
+    @StateObject var homePresenter: HomePresenter = HomePresenter(homeUseCase: Injection().provideHomeUseCase())
     
     init() {
         UINavigationBar.appearance().backgroundColor = .clear
@@ -13,7 +15,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(presenter: HomePresenter(homeUseCase: Injection().provideHomeUseCase()))
+            HomeView(presenter: homePresenter, destination: {
+                EmptyView()
+            })
                 .tabItem {
                     VStack {
                         Image(systemName: "house")
@@ -21,7 +25,8 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            FavoriteView(presenter: FavoritePresenter(favoriteUseCase: Injection().provideFavoriteUseCase()))
+//            FavoriteView(presenter: FavoritePresenter(favoriteUseCase: Injection().provideFavoriteUseCase()))
+            EmptyView()
                 .tabItem {
                     VStack {
                         Image(systemName: "heart")

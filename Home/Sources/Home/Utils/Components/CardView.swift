@@ -1,10 +1,17 @@
+//
+//  File.swift
+//  
+//
+//  Created by Luis Genesius on 29/11/21.
+//
+
+import Foundation
 import SwiftUI
 import SDWebImageSwiftUI
 
-/*
 struct CardView: View {
     let game: GameModel
-    
+
     var body: some View {
         HStack(spacing: 20) {
             ImageCardView(imageManager: ImageManager(url: game.backgroundImageURL))
@@ -18,7 +25,7 @@ struct CardView: View {
         .clipped()
         .shadow(color: Color.black, radius: 5, x: 0, y: 0)
     }
-    
+
     var textVStack: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(game.name)
@@ -38,7 +45,7 @@ struct CardView: View {
 
 struct ImageCardView: View {
     @ObservedObject var imageManager: ImageManager
-    
+
     var body: some View {
         ZStack {
             if imageManager.image != nil {
@@ -83,4 +90,3 @@ struct ImageCardView: View {
         }
     }
 }
-*/

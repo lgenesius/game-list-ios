@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/*
 protocol GameRemoteRepositoryProtocol {
     
     func getGames() -> AnyPublisher<(String?, [GameModel]), Error>
@@ -56,3 +57,4 @@ extension GameRemoteRepository: GameRemoteRepositoryProtocol {
     }
     
 }
+*/

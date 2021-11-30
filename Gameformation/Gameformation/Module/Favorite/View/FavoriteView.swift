@@ -1,5 +1,6 @@
 import SwiftUI
 
+/*
 struct FavoriteView: View {
     @ObservedObject var presenter: FavoritePresenter
     
@@ -29,3 +30,4 @@ struct FavoriteView: View {
         })
     }
 }
+*/

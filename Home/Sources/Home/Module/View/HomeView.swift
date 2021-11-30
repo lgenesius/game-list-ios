@@ -1,27 +1,44 @@
+//
+//  File.swift
+//  
+//
+//  Created by Luis Genesius on 29/11/21.
+//
+
+import Foundation
 import SwiftUI
 
-/*
-struct HomeView: View {
+public struct HomeView<Destination: View>: View {
     @ObservedObject var presenter: HomePresenter
+    public let destination: (() -> Destination)
     
-    var body: some View {
+    public init(presenter: HomePresenter, destination: @escaping (() -> Destination)) {
+        self.presenter = presenter
+        self.destination = destination
+    }
+    
+    public var body: some View {
         NavigationView {
                 ScrollView {
                     LazyVStack {
                         
-                        SearchBarView(placeholder: "Search any games...", text: self.$presenter.query)
+                        SearchBar(placeholder: "Search any games...", text: self.$presenter.query)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         
                         if let gameResults = presenter.games {
                             ForEach(gameResults) { game in
-                                presenter.linkBuilder(with: game.id) {
+                                NavigationLink {
+                                    destination()
+                                } label: {
                                     CardView(game: game)
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 5)
                                         .onAppear {
-                                            presenter.loadNextGames(game: game)
+                                            guard let lastGame = presenter.games.last, game.id == lastGame.id, let nextURL = presenter.nextGamesURL() else { return }
+                                            presenter.loadNextGames(nextURL: nextURL)
                                         }
                                 }
+
                             }
                         }
                         
@@ -38,4 +55,3 @@ struct HomeView: View {
         }
     }
 }
-*/

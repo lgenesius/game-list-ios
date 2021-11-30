@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 final class TabRouter {
     
     func createDetailView(from parentView: ParentView, with id: Int) -> some View {
@@ -15,3 +16,4 @@ final class TabRouter {
         return DetailView(presenter: presenter)
     }
 }
+*/

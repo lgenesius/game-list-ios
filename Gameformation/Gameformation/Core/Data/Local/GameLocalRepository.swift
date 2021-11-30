@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/*
 protocol GameLocalRepositoryProtocol {
     
     func getGames() -> AnyPublisher<[GameModel], Error>
@@ -51,3 +52,4 @@ extension GameLocalRepository: GameLocalRepositoryProtocol {
         local.deleteGame(id: id)
     }
 }
+*/

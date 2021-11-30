@@ -1,6 +1,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+/*
 struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
     
@@ -179,3 +180,4 @@ struct PublisherView: View {
         .padding(.bottom, 15)
     }
 }
+*/

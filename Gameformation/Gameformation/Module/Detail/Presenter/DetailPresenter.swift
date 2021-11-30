@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+/*
 enum ParentView {
     case home
     case favorite
@@ -117,3 +118,4 @@ class DetailPresenter: ObservableObject {
         cancelables.removeAll()
     }
 }
+*/

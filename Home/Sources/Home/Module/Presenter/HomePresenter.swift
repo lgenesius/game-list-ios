@@ -1,21 +1,19 @@
 //
-//  HomePresenter.swift
-//  Gameformation
+//  File.swift
+//  
 //
-//  Created by Luis Genesius on 18/11/21.
+//  Created by Luis Genesius on 29/11/21.
 //
 
-import SwiftUI
+import Foundation
 import Combine
 
-/*
-class HomePresenter: ObservableObject {
+public class HomePresenter: ObservableObject {
     
     private var cancelables: Set<AnyCancellable> = []
     private var token: AnyCancellable?
     
-    private let router = TabRouter()
-    private let homeUseCase: HomeUseCase
+    private let homeUseCase: HomeInteractor<Any, GameModel, GameRemoteRepository<GameRemoteDataSource>>
     
     @Published var query = ""
     @Published var games: [GameModel] = []
@@ -24,7 +22,7 @@ class HomePresenter: ObservableObject {
     
     private var nextPage: String?
     
-    init(homeUseCase: HomeUseCase) {
+    public init(homeUseCase: HomeInteractor<Any, GameModel, GameRemoteRepository<GameRemoteDataSource>>) {
         self.homeUseCase = homeUseCase
     }
     
@@ -51,7 +49,7 @@ class HomePresenter: ObservableObject {
         }
         
         isLoading = true
-        homeUseCase.searchGame(query: query)
+        homeUseCase.search(query: query)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 self?.isLoading = false
@@ -70,7 +68,7 @@ class HomePresenter: ObservableObject {
     
     private func firstPageGames() {
         isLoading = true
-        homeUseCase.getGames()
+        homeUseCase.list(request: nil)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 self?.isLoading = false
@@ -87,10 +85,9 @@ class HomePresenter: ObservableObject {
             .store(in: &cancelables)
     }
     
-    func loadNextGames(game: GameModel) {
-        guard let lastGame = games.last, game.id == lastGame.id, let nextURL = nextGamesURL() else { return }
+    func loadNextGames(nextURL: URL) {
         isLoading = true
-        homeUseCase.nextGames(url: nextURL)
+        homeUseCase.next(url: nextURL)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 self?.isLoading = false
@@ -107,14 +104,10 @@ class HomePresenter: ObservableObject {
             .store(in: &cancelables)
     }
     
-    private func nextGamesURL() -> URL? {
+    func nextGamesURL() -> URL? {
         guard let nextString = self.nextPage else { return nil }
         guard let url = URL(string: nextString) else { return nil }
         return url
-    }
-    
-    func linkBuilder<Content: View>(with id: Int, @ViewBuilder content: () -> Content) -> some View {
-        NavigationLink(destination: router.createDetailView(from: .home, with: id)) { content() }
     }
     
     deinit {
@@ -123,4 +116,3 @@ class HomePresenter: ObservableObject {
         self.token = nil
     }
 }
-*/
