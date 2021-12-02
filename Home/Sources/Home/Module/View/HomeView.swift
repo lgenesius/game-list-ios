@@ -7,14 +7,13 @@
 
 import Foundation
 import SwiftUI
-import Core
 import GamePackage
 
 public struct HomeView<Destination: View>: View {
     @ObservedObject var presenter: HomePresenter
-    public let destination: (() -> Destination)
+    public let destination: ((Int) -> Destination)
     
-    public init(presenter: HomePresenter, destination: @escaping (() -> Destination)) {
+    public init(presenter: HomePresenter, destination: @escaping ((Int) -> Destination)) {
         self.presenter = presenter
         self.destination = destination
     }
@@ -30,7 +29,7 @@ public struct HomeView<Destination: View>: View {
                         if let gameResults = presenter.games {
                             ForEach(gameResults) { game in
                                 NavigationLink {
-                                    destination()
+                                    destination(game.id)
                                 } label: {
                                     CardView(game: game)
                                         .padding(.horizontal, 10)

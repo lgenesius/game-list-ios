@@ -1,5 +1,7 @@
 import SwiftUI
 import Home
+import GamePackage
+import DetailGame
 
 struct ContentView: View {
     @StateObject var homePresenter: HomePresenter = HomePresenter(homeUseCase: Injection().provideHomeUseCase())
@@ -15,8 +17,8 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(presenter: homePresenter, destination: {
-                EmptyView()
+            HomeView(presenter: homePresenter, destination: { id in
+                DetailView(presenter: DetailPresenter(parentView: .home, detailUseCase: Injection().provideDetailUseCase(id: id)))
             })
                 .tabItem {
                     VStack {

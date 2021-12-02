@@ -9,6 +9,7 @@ import Foundation
 import Home
 import Core
 import GamePackage
+import DetailGame
 
 // swiftlint:disable all
 final class Injection {
@@ -43,5 +44,15 @@ final class Injection {
         let remoteDataSource = GameRemoteDataSource()
         let remoteRepository = GameRemoteRepository(remoteDataSource: remoteDataSource)
         return HomeInteractor(repository: remoteRepository) as! U
+    }
+    
+    func provideDetailUseCase<U: DetailUseCase>(id: Int) -> U where U.Request == GameModel, U.Response == DetailGameModel {
+        let remoteDataSource = GameRemoteDataSource()
+        let remoteRepository = GameRemoteRepository(remoteDataSource: remoteDataSource)
+        
+        let localeDataSource = GameLocalDataSource()
+        let localeRepository = GameLocalRepository(localeDataSource: localeDataSource)
+        
+        return DetailInteractor(id: id, remoteRepository: remoteRepository, localRepository: localeRepository) as! U
     }
 }

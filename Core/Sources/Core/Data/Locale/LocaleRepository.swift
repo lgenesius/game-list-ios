@@ -10,9 +10,10 @@ import Combine
 public protocol LocaleRepository {
     associatedtype Request
     associatedtype Response
+    associatedtype DetailResponse
     
     func list(request: Request?) -> AnyPublisher<[Response], Error>
-    func get(id: Int) -> AnyPublisher<Response?, Error>
+    func get(id: Int) -> AnyPublisher<DetailResponse?, Error>
     func add(entity: Response) -> AnyPublisher<Bool, Never>
     func delete(id: Int) -> AnyPublisher<Bool, Never>
 }

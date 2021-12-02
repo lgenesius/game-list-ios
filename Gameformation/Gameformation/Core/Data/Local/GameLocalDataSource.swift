@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import Combine
 
+/*
 protocol GameLocalDataSourceProtocol {
     
     func getGames() -> AnyPublisher<[GameEntity], Error>
@@ -108,3 +109,4 @@ extension GameLocalDataSource: GameLocalDataSourceProtocol {
         }
     }
 }
+*/

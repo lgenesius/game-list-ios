@@ -7,15 +7,15 @@
 
 import Foundation
 
-final class PublisherMapper {
-    
-    static func mapPublishersToPublisherModels(input publishers: [Publisher]) -> [PublisherModel] {
-        return publishers.map { result in
-            return PublisherModel(
-                id: result.id,
-                name: result.name,
-                imageBackground: result.imageBackground
-            )
-        }
-    }
-}
+//final class PublisherMapper {
+//    
+//    static func mapPublishersToPublisherModels(input publishers: [Publisher]) -> [PublisherModel] {
+//        return publishers.map { result in
+//            return PublisherModel(
+//                id: result.id,
+//                name: result.name,
+//                imageBackground: result.imageBackground
+//            )
+//        }
+//    }
+//}

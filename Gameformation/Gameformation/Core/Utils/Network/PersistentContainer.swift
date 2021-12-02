@@ -7,6 +7,7 @@
 
 import CoreData
 
+/*
 struct PersistentContainer {
     
     static var viewContext: NSManagedObjectContext = {
@@ -19,3 +20,4 @@ struct PersistentContainer {
         return container.viewContext
     }()
 }
+*/

@@ -10,7 +10,7 @@ import Core
 import Combine
 import GamePackage
 
-public struct HomeInteractor<Request, Response, R: RemoteRepository>: HomeUseCase where R.Request == Request, R.Response == Response {
+public struct HomeInteractor<Request, Response, R: RemoteRepository>: HomeUseCase where R.Request == Request, R.Response == Response, R.DetailResponse == DetailGameModel  {
     private let _repository: R
     
     public init(repository: R) {

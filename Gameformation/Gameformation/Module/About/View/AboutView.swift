@@ -1,4 +1,5 @@
 import SwiftUI
+import GamePackage
 
 struct AboutView: View {
     var presenter: AboutPresenter

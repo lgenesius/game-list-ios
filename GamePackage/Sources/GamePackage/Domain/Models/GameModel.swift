@@ -9,10 +9,10 @@ import Foundation
 
 public struct GameModel: Identifiable, Equatable {
     public let id: Int
-    let name: String
-    let released: String?
-    let backgroundImage: String?
-    let overallRating: Double
+    public let name: String
+    public let released: String?
+    public let backgroundImage: String?
+    public let overallRating: Double
     
     public init(id: Int, name: String, released: String?, backgroundImage: String?, overallRating: Double) {
         self.id = id

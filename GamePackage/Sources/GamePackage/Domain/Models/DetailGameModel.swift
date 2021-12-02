@@ -9,15 +9,15 @@ import Foundation
 
 public struct DetailGameModel: Identifiable {
     public let id: Int
-    let name: String
-    let released: String?
-    let backgroundImage: String?
-    let overallRating: Double
-    let platforms: [PlatformModel]?
-    let publishers: [PublisherModel]?
-    let gameDescription: String?
+    public let name: String
+    public let released: String?
+    public let backgroundImage: String?
+    public let overallRating: Double
+    public let platforms: [PlatformModel]?
+    public let publishers: [PublisherModel]?
+    public let gameDescription: String?
     
-    var backgroundImageURL: URL? {
+    public var backgroundImageURL: URL? {
         guard let imageURL = self.backgroundImage else { return nil }
         let url = URL(string: imageURL)
         return url
@@ -26,11 +26,11 @@ public struct DetailGameModel: Identifiable {
 
 public struct PlatformModel: Identifiable {
     public let id: Int
-    let name: String
+    public let name: String
 }
 
 public struct PublisherModel: Identifiable {
     public let id: Int
-    let name: String
-    let imageBackground: String
+    public let name: String
+    public let imageBackground: String
 }
