@@ -109,7 +109,7 @@ public class DetailPresenter: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { status in
                 if status {
-//                    NotificationCenter.default.post(name: .refreshFavorite, object: nil)
+                    NotificationCenter.default.post(name: .refreshFavorite, object: nil)
                 }
             }
             .store(in: &cancelables)

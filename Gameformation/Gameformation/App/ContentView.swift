@@ -2,9 +2,11 @@ import SwiftUI
 import Home
 import GamePackage
 import DetailGame
+import Favorite
 
 struct ContentView: View {
     @StateObject var homePresenter: HomePresenter = HomePresenter(homeUseCase: Injection().provideHomeUseCase())
+    @StateObject var favoritePresenter: FavoritePresenter = FavoritePresenter(favoriteUseCase: Injection().provideFavoriteUseCase())
     
     init() {
         UINavigationBar.appearance().backgroundColor = .clear
@@ -27,8 +29,10 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-//            FavoriteView(presenter: FavoritePresenter(favoriteUseCase: Injection().provideFavoriteUseCase()))
-            EmptyView()
+            
+            FavoriteView(presenter: favoritePresenter, destination: { id in
+                DetailView(presenter: DetailPresenter(parentView: .favorite, detailUseCase: Injection().provideDetailUseCase(id: id)))
+            })
                 .tabItem {
                     VStack {
                         Image(systemName: "heart")
@@ -36,6 +40,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
+            
             AboutView(presenter: AboutPresenter(mySelf: Myself()))
                 .tabItem {
                     VStack {
