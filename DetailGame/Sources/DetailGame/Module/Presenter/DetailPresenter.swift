@@ -75,7 +75,7 @@ public class DetailPresenter: ObservableObject {
     }
     
     func setTrailingToolbarText() -> String {
-        return parentView == .home ? (isFavorited ? "Favorited": "Favorite"): "Unfavorite"
+        return parentView == .home ? (isFavorited ? "favorited": "favorite"): "unfavorite"
     }
     
     func trailingToolbarAction() {

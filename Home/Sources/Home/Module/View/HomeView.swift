@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import GamePackage
+import Common
 
 public struct HomeView<Destination: View>: View {
     @ObservedObject var presenter: HomePresenter
@@ -23,7 +24,7 @@ public struct HomeView<Destination: View>: View {
                 ScrollView {
                     LazyVStack {
                         
-                        SearchBar(placeholder: "Search any games...", text: self.$presenter.query)
+                        SearchBar(placeholder: "search_placeholder".localized(), text: self.$presenter.query)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         
                         if let gameResults = presenter.games {

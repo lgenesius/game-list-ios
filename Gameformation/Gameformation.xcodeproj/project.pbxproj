@@ -40,6 +40,7 @@
 		E19E120226E26BD500531720 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E120126E26BD500531720 /* EditProfileView.swift */; };
 		E1A47ABF26E10DCF0004CEB6 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */; };
 		E1A47AC626E1230C0004CEB6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */; };
+		E1D82A322759B66700395712 /* About in Frameworks */ = {isa = PBXBuildFile; productRef = E1D82A312759B66700395712 /* About */; };
 		E1DAF2B62750B8E200484F52 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = E1DAF2B52750B8E200484F52 /* Common */; };
 		E1DF4E6E2753768500D0FAD1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E1DF4E6D2753768500D0FAD1 /* Core */; };
 		E1DF4E702753768A00D0FAD1 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = E1DF4E6F2753768A00D0FAD1 /* Home */; };
@@ -112,6 +113,7 @@
 		E19E120126E26BD500531720 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E1A47ABE26E10DCF0004CEB6 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		E1A47AC526E1230C0004CEB6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
+		E1D82A302759B65400395712 /* About */ = {isa = PBXFileReference; lastKnownFileType = folder; name = About; path = ../About; sourceTree = "<group>"; };
 		E1DF4E6A275344DC00D0FAD1 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = ../Core; sourceTree = "<group>"; };
 		E1DF4E6B2753746300D0FAD1 /* Home */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Home; path = ../Home; sourceTree = "<group>"; };
 		E1E2ED4227475B840024F211 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				E1EFD03E27591AD700FE0E78 /* Favorite in Frameworks */,
 				E1E2ED46274761F00024F211 /* SDWebImageSwiftUI in Frameworks */,
 				E18912E92756342F006D721C /* GamePackage in Frameworks */,
+				E1D82A322759B66700395712 /* About in Frameworks */,
 				E1DF4E6E2753768500D0FAD1 /* Core in Frameworks */,
 				E11FE8D62746365900265DC7 /* Alamofire in Frameworks */,
 				E1DF4E702753768A00D0FAD1 /* Home in Frameworks */,
@@ -420,6 +423,7 @@
 				E1DF4E6B2753746300D0FAD1 /* Home */,
 				E1EFD03C27591AC400FE0E78 /* Favorite */,
 				E1E7883527573CB50022C2BB /* DetailGame */,
+				E1D82A302759B65400395712 /* About */,
 				E1319E8A26C9333A00E7159D /* Gameformation */,
 				E1E2ED5C2747F9A10024F211 /* GameformationTests */,
 				E1319E8926C9333A00E7159D /* Products */,
@@ -613,6 +617,7 @@
 				E18912E82756342F006D721C /* GamePackage */,
 				E1E7883627573E3E0022C2BB /* DetailGame */,
 				E1EFD03D27591AD700FE0E78 /* Favorite */,
+				E1D82A312759B66700395712 /* About */,
 			);
 			productName = Gameformation;
 			productReference = E1319E8826C9333A00E7159D /* Gameformation.app */;
@@ -661,6 +666,8 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
+				ja,
 			);
 			mainGroup = E1319E7F26C9333A00E7159D;
 			packageReferences = (
@@ -1071,6 +1078,10 @@
 		E18912E82756342F006D721C /* GamePackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GamePackage;
+		};
+		E1D82A312759B66700395712 /* About */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = About;
 		};
 		E1DAF2B52750B8E200484F52 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;

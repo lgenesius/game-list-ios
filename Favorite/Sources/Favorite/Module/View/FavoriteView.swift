@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GamePackage
+import Common
 
 public struct FavoriteView<Destination: View>: View {
     @ObservedObject var presenter: FavoritePresenter
@@ -38,7 +39,7 @@ public struct FavoriteView<Destination: View>: View {
                     }
                 }
             }
-            .navigationTitle(Text("Favorite"))
+            .navigationTitle(Text("favorite".localized()))
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: {

@@ -7,10 +7,12 @@
 
 import XCTest
 import Combine
+import Favorite
+import GamePackage
 @testable import Gameformation
 
 class FavoriteInteractorTests: XCTestCase {
-    private let favoriteUseCase = Injection().provideFavoriteUseCase()
+    private let favoriteUseCase: FavoriteInteractor<Any, GameModel, GameLocalRepository<GameLocalDataSource>> = Injection().provideFavoriteUseCase()
     
     private var cancelable: AnyCancellable?
     
@@ -21,7 +23,7 @@ class FavoriteInteractorTests: XCTestCase {
         let expectation = self.expectation(description: "GetGameEntities")
         var error: Error?
         
-        cancelable = favoriteUseCase.getGameEntities()
+        cancelable = favoriteUseCase.getEntities(request: nil)
             .sink { completion in
                 switch completion {
                 case .finished:

@@ -7,10 +7,12 @@
 
 import XCTest
 import Combine
+import Home
+import GamePackage
 @testable import Gameformation
 
 class HomeInteractorTests: XCTestCase {
-    private let homeUseCase = Injection().provideHomeUseCase()
+    private let homeUseCase: HomeInteractor<Any, GameModel, GameRemoteRepository<GameRemoteDataSource>> = Injection().provideHomeUseCase()
     
     private var cancelables: Set<AnyCancellable> = []
     
@@ -21,7 +23,7 @@ class HomeInteractorTests: XCTestCase {
         var games: [GameModel] = []
         var nextPage: String?
         
-        homeUseCase.getGames()
+        homeUseCase.list(request: nil)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -54,7 +56,7 @@ class HomeInteractorTests: XCTestCase {
         var nextPage: String?
         
         let query = "Dota"
-        homeUseCase.searchGame(query: query)
+        homeUseCase.search(query: query)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -90,7 +92,7 @@ class HomeInteractorTests: XCTestCase {
         let url = URL(string: urlString)
         XCTAssertNotNil(url)
         
-        homeUseCase.nextGames(url: url!)
+        homeUseCase.next(url: url!)
             .sink { completion in
                 switch completion {
                 case .finished:

@@ -3,6 +3,8 @@ import Home
 import GamePackage
 import DetailGame
 import Favorite
+import About
+import Common
 
 struct ContentView: View {
     @StateObject var homePresenter: HomePresenter = HomePresenter(homeUseCase: Injection().provideHomeUseCase())
@@ -25,7 +27,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "house")
-                        Text("Home")
+                        Text("home".localized())
                     }
                 }
                 .tag(0)
@@ -36,7 +38,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "heart")
-                        Text("Favorites")
+                        Text("favorites".localized())
                     }
                 }
                 .tag(1)
@@ -45,10 +47,13 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "person")
-                        Text("About")
+                        Text("about".localized())
                     }
                 }
                 .tag(2)
+        }
+        .onAppear {
+            print("favorite".localized())
         }
     }
 }

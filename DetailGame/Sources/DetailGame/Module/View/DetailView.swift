@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import GamePackage
+import Common
 
 public struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
@@ -54,7 +55,7 @@ public struct DetailView: View {
                 Button(action: {
                     presenter.trailingToolbarAction()
                 }, label: {
-                    Text(presenter.setTrailingToolbarText())
+                    Text(presenter.setTrailingToolbarText().localized())
                 })
                     .disabled(presenter.disableToolbar())
             }
@@ -151,7 +152,7 @@ public struct RatingReleasedDateView: View {
     public var body: some View {
         HStack(alignment: .center, spacing: 20) {
             VStack(spacing: 10) {
-                Text("The Rating:")
+                Text("the_rating".localized() + ":")
                     .titleCardStyle()
                 HStack {
                     Text(String(game.overallRating))
@@ -165,7 +166,7 @@ public struct RatingReleasedDateView: View {
             .cornerRadius(10)
             
             VStack(spacing: 10) {
-                Text("Released:")
+                Text("released".localized() + ":")
                     .titleCardStyle()
                 Text(String(game.released ?? "No Data"))
                     .foregroundColor(.white)
@@ -186,7 +187,7 @@ public struct PublisherView: View {
     
     public var body: some View {
         HStack {
-            Text("Publisher(s):")
+            Text("publisher".localized() + ":")
                 .titleCardStyle()
                 .padding(.horizontal)
             Spacer()
