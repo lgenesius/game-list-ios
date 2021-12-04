@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct ActivityIndicator: ViewRepresentable {
+public struct ActivityIndicator: UIViewRepresentable {
     
     public init() {}
     
