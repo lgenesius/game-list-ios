@@ -17,7 +17,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.3")),
         .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", .upToNextMajor(from: "2.0.2")),
-        .package(url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
+        .package(name: "Common", url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
         .package(path: "../Core"),
         .package(path: "../GamePackage")
     ],
@@ -27,7 +27,7 @@ let package = Package(
         .target(
             name: "Home",
             dependencies: [
-                .product(name: "Common", package: "luis-dicoding-common"),
+                "Common",
                 "Core",
                 "Alamofire",
                 "SDWebImageSwiftUI",

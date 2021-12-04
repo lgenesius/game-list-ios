@@ -15,7 +15,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
+        .package(name: "Common", url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
         .package(path: "../GamePackage")
     ],
     targets: [
@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "About",
             dependencies: [
-                .product(name: "Common", package: "luis-dicoding-common"),
+                "Common",
                 "GamePackage"
             ]),
         .testTarget(

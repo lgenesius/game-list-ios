@@ -16,7 +16,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", .upToNextMajor(from: "2.0.2")),
-        .package(url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
+        .package(name: "Common", url: "https://github.com/lgenesius/luis-dicoding-common.git", .upToNextMajor(from: "1.0.6")),
         .package(path: "../GamePackage"),
         .package(path: "../Core")
     ],
@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "DetailGame",
             dependencies: [
-                .product(name: "Common", package: "luis-dicoding-common"),
+                "Common",
                 "SDWebImageSwiftUI",
                 "GamePackage",
                 "Core"
