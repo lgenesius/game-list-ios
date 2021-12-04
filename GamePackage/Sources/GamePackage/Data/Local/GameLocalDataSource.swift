@@ -5,7 +5,6 @@
 //  Created by Luis Genesius on 01/12/21.
 //
 
-import Foundation
 import Core
 import CoreData
 import Combine
