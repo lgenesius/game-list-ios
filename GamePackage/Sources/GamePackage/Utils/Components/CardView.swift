@@ -60,22 +60,9 @@ public struct ImageCardView: View {
                     .cornerRadius(10)
             } else {
                 if imageManager.isLoading {
-                    if #available(iOS 15.0, *) {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 80, height: 80)
-                            .overlay {
-                                ActivityIndicator()
-                            }
-                    } else {
-                        // Fallback on earlier versions
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 80, height: 80)
-                            .overlay(
-                                ActivityIndicator()
-                            )
-                    }
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 80, height: 80)
                 } else {
                     Image(systemName: "questionmark.square")
                         .resizable()
