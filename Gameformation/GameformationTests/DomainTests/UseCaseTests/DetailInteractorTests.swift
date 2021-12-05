@@ -76,7 +76,6 @@ class DetailInteractorTests: XCTestCase {
     func testGetGameEntity() {
         let expectation = self.expectation(description: "GetGameEntity")
         var error: Error?
-        var gameEntity: DetailGameModel?
 
         detailUseCase.getEntity()
             .sink { completion in
@@ -89,7 +88,7 @@ class DetailInteractorTests: XCTestCase {
 
                 expectation.fulfill()
             } receiveValue: { incomingGame in
-                gameEntity = incomingGame
+                
             }
             .store(in: &cancelables)
 
