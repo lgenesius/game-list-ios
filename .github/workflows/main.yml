@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_12.4.app/Contents/Developer'
+        run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
       - name: Build
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild clean build -project Gameformation/Gameformation.xcodeproj -scheme Gameformation -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest" | xcpretty
       - name: Test
