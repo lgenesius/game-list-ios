@@ -12,6 +12,7 @@ import GamePackage
 import DetailGame
 import Favorite
 
+// swiftlint:disable all
 final class Injection {
     
     func provideHomeUseCase<U: HomeUseCase>() -> U where U.Request == Any, U.Response == GameModel {
